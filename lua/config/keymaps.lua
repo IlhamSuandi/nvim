@@ -12,8 +12,6 @@ local opts = function(desc)
 end
 
 map("i", "jj", "<Esc>", opts())
-map({ "n", "v" }, "+", "<C-a>", opts())
-map({ "n", "v" }, "-", "<C-x>", opts())
 map("n", "vie", "ggVG", { desc = "everything visual everything" })
 map("n", "yie", "ggVGy", { desc = "everything yank everything" })
 map("n", "cie", "ggVGc", { desc = "everything change everything" })
@@ -29,14 +27,17 @@ unmap("n", "]b")
 unmap("n", "<leader>bb")
 unmap("n", "<leader>`")
 
-map("n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
-map("n", "<A-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
-map("n", "<A-H>", "<cmd>BufferLineMovePrev<cr>", { desc = "move to prev buffer" })
-map("n", "<A-L>", "<cmd>BufferLineMoveNext<cr>", { desc = "Next Buffer" })
+map({ "n", "v", "i" }, "<A-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+map({ "n", "v", "i" }, "<A-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+map({ "n", "v", "i" }, "<A-H>", "<cmd>BufferLineMovePrev<cr>", { desc = "move to prev buffer" })
+map({ "n", "v", "i" }, "<A-L>", "<cmd>BufferLineMoveNext<cr>", { desc = "Next Buffer" })
 map("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Next Buffer" })
 map("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Prev Buffer" })
 map("n", "<leader>bd", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
 map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
+
+map("i", "<C-l>", "<Left>", { desc = "go to left in insert mode" })
+map("i", "<C-h>", "<Left>", { desc = "go to left in insert mode" })
 -- --
 -- NOTE : buffers
 map("n", "<leader>zt", "<cmd>Twilight<cr>", { desc = "Twilight toggle" })
