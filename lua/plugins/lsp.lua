@@ -71,6 +71,29 @@ return {
       end,
     },
 
+    {
+      "mfussenegger/nvim-dap",
+      recommended = true,
+      desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
+      keys = {
+        {
+          "<leader>dR",
+          function()
+            require("dap").repl.toggle()
+          end,
+          desc = "Toggle REPL",
+        },
+
+        {
+          "<leader>dr",
+          function()
+            require("dap").restart()
+          end,
+          desc = "Restart dap",
+        },
+      },
+    },
+
     -- NOTE : flutter tools
     {
       "akinsho/flutter-tools.nvim",
