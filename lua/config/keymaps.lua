@@ -47,17 +47,17 @@ map("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "noice dismiss notifica
 map("n", "<leader>nl", "<cmd>NoiceLast<CR>", { desc = "noice last notification" })
 map("n", "<leader>nt", "<cmd>NoiceTelescope<CR>", { desc = "noice telescope" })
 
--- NOTE : presence nvim
-map("n", "<leader>pu", ":lua require('presence'):update()<cr>", { desc = "presence update" })
-map("n", "<leader>pc", ":lua require('presence'):cancel()<cr>", { desc = "presence close/cancel" })
+-- NOTE <cmd> presence nvim
+map("n", "<leader>pu", "<cmd>lua require('presence'):update()<cr>", { desc = "presence update" })
+map("n", "<leader>pc", "<cmd>lua require('presence'):cancel()<cr>", { desc = "presence close/cancel" })
 
--- NOTE : lspsaga
-map({ "n", "v" }, "<leader>ca", ":Lspsaga code_action<cr>", opts("lspsaga code action"))
-map("n", "<leader>cd", ":Lspsaga peek_definition<cr>", opts("lspsaga peek definition"))
-map("n", "<leader>co", ":Lspsaga outline<cr>", opts("lspsaga outline"))
-map("n", "<leader>ce", ":Lspsaga show_buf_diagnostics<cr>", opts("lspsaga show buf diagnostics"))
-map("n", "<leader>cE", ":Lspsaga show_workspace_diagnostics<cr>", opts("lspsaga show workspace diagnostics"))
-map("n", "K", ":Lspsaga hover_doc<cr>", opts("lspsaga hover doc"))
-map("n", "en", ":Lspsaga diagnostic_jump_next<cr>", opts("lspsaga jump to next diagnostic"))
-map("n", "ep", ":Lspsaga diagnostic_jump_prev<cr>", opts("lspsaga jump to prev diagnostic"))
-map("n", "es", ":Lspsaga show_line_diagnostics<cr>", opts("lspsaga show line diagnostics"))
+-- NOTE <cmd> lspsaga
+map({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts("lspsaga code action"))
+map("n", "<leader>cd", "<cmd>Lspsaga peek_definition<cr>", opts("lspsaga peek definition"))
+map("n", "<leader>co", "<cmd>Lspsaga outline<cr>", opts("lspsaga outline"))
+map("n", "<leader>ce", "<cmd>Lspsaga show_buf_diagnostics<cr>", opts("lspsaga show buf diagnostics"))
+map("n", "<leader>cE", "<cmd>Lspsaga show_workspace_diagnostics<cr>", opts("lspsaga show workspace diagnostics"))
+map("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts("lspsaga hover doc"))
+map("n", "en", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts("lspsaga jump to next diagnostic"))
+map("n", "ep", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts("lspsaga jump to prev diagnostic"))
+map("n", "es", "<cmd>Lspsaga show_line_diagnostics<cr>", opts("lspsaga show line diagnostics"))
