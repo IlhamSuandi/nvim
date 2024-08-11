@@ -3,6 +3,7 @@
 -- Add any additional options here
 --
 local opt = vim.opt
+
 opt.confirm = false
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -11,5 +12,9 @@ opt.expandtab = true
 opt.smarttab = true
 opt.autoindent = true
 opt.smartindent = true
+opt.showmode = false
 
+-- NOTE : use prettier config from workspace instead of vim default
 vim.g.lazyvim_prettier_needs_config = false
+
+-- NOTE : codi.vim
