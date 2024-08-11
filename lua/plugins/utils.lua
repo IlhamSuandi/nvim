@@ -4,7 +4,7 @@ return {
     "folke/twilight.nvim",
     opts = {
       dimming = {
-        alpha = 0.4, -- amount of dimming
+        alpha = 0.5, -- amount of dimming
         -- we try to get the foreground from the highlight groups or fallback color
         color = { "Normal", "#ffffff" },
         term_bg = "#303446", --  if guibg=NONE, this will be used to calculate text color
@@ -24,51 +24,12 @@ return {
     },
   },
 
+  -- NOTE : mini.ai
   {
     "echasnovski/mini.ai",
     event = "VeryLazy",
     config = function()
       require("config.mini-ai")
-    end,
-  },
-
-  -- NOTE : dial for increment/decrement
-  {
-    "monaqa/dial.nvim",
-    event = "VeryLazy",
-    keys = {
-      {
-        "<leader>tb",
-        function()
-          local function dial(increment, g)
-            local mode = vim.fn.mode(true)
-            -- Use visual commands for VISUAL 'v', VISUAL LINE 'V' and VISUAL BLOCK '\22'
-            local is_visual = mode == "v" or mode == "V" or mode == "\22"
-            local func = (increment and "inc" or "dec") .. (g and "_g" or "_") .. (is_visual and "visual" or "normal")
-            local group = vim.g.dials_by_ft[vim.bo.filetype] or "default"
-            return require("dial.map")[func](group)
-          end
-
-          return dial(true)
-        end,
-        expr = true,
-        desc = "Increment",
-        mode = { "n", "v" },
-      },
-      {
-        "+",
-        mode = { "n" },
-        "<cmd>DialIncrement<cr>",
-      },
-      {
-        "-",
-        mode = { "n" },
-        "<cmd>DialDecrement<cr>",
-      },
-    },
-
-    opts = function()
-      require("config.dial")
     end,
   },
 
@@ -88,7 +49,7 @@ return {
       blacklist = {}, -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
       buttons = false, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
       file_assets = {}, -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
-      show_time = true, -- Show the timer
+      show_time = false, -- Show the timer
 
       -- Rich Presence text options
       editing_text = "Editing %s", -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
@@ -139,5 +100,125 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  },
+
+  -- NOTE : leetcode things
+  {
+    "kawre/leetcode.nvim",
+    -- event = "VeryLazy",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- required by telescope
+      "MunifTanjim/nui.nvim",
+
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      -- configuration goes here
+      image_support = true,
+    },
+  },
+
+  -- NOTE : console ninja alternative
+  {
+    "metakirby5/codi.vim",
+    event = "VeryLazy",
+    config = function()
+      vim.g["codi#interpreters"] = {
+        python = {
+          bin = "/usr/bin/python3",
+          prompt = "^\\(>>>\\|\\.\\.\\.\\) ",
+        },
+      }
+    end,
+  },
+
+  -- NOTE : snipe for picking buffers
+  {
+    "leath-dub/snipe.nvim",
+    keys = {
+      {
+        "gb",
+        function()
+          require("snipe").open_buffer_menu()
+        end,
+        desc = "Open Snipe buffer menu",
+      },
+    },
+    opts = {
+      hints = {
+        dictionary = "123456789",
+      },
+      navigate = {
+        cancel_snipe = "q",
+      },
+    },
+  },
+
+  -- NOTE : hardtime
+  {
+    "m4xshen/hardtime.nvim",
+    enabled = false,
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+
+  -- NOTE : zen mode
+  {
+    "folke/zen-mode.nvim",
+    keys = {
+      { "<leader>zz", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
+    },
+    opts = {
+      window = {
+        backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+        -- height and width can be:
+        -- * an absolute number of cells when > 1
+        -- * a percentage of the width / height of the editor when <= 1
+        width = 1, -- width of the Zen window
+        -- * a function that returns the width or the height
+        height = 1, -- height of the Zen window
+        -- by default, no options are changed for the Zen window
+        -- uncomment any of the options below, or add other vim.wo options you want to apply
+        options = {
+          signcolumn = "yes", -- disable signcolumn
+          -- number = false, -- disable number column
+          -- relativenumber = false, -- disable relative numbers
+          -- cursorline = false, -- disable cursorline
+          -- cursorcolumn = false, -- disable cursor column
+          -- foldcolumn = "0", -- disable fold column
+          -- list = false, -- disable whitespace characters
+        },
+      },
+      plugins = {
+        -- disable some global vim options (vim.o...)
+        -- comment the lines to not apply the options
+        options = {
+          enabled = true,
+          ruler = false, -- disables the ruler text in the cmd line area
+          showcmd = false, -- disables the command in the last line of the screen
+          -- you may turn on/off statusline in zen mode by setting 'laststatus'
+          -- statusline will be shown only if 'laststatus' == 3
+          laststatus = 3, -- turn off the statusline in zen mode
+        },
+        twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
+        gitsigns = { enabled = true }, -- disables git signs
+        tmux = { enabled = false }, -- disables the tmux statusline
+        todo = { enabled = false }, -- if set to "true", todo-comments.nvim highlights will be disabled
+        -- this will change the font size on kitty when in zen mode
+        -- to make this work, you need to set the following kitty options:
+        -- - allow_remote_control socket-only
+        -- - listen_on unix:/tmp/kitty
+        kitty = {
+          enabled = true,
+          font = "+4", -- font size increment
+        },
+      },
+    },
   },
 }
