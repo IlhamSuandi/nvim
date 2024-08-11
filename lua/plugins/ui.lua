@@ -1,55 +1,23 @@
+require("plugins.themes")
+
+local themes = {
+  catppuccin = "catppuccin",
+  kanagawa = "kanagawa",
+  nord = "nord",
+  rosepine = "rose-pine",
+  rasmus = "rasmus",
+  darkvoid = "darkvoid",
+  onedark = "onedark",
+}
+
 return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = themes.rosepine,
     },
   },
 
-  {
-    "catppuccin/nvim",
-    lazy = false,
-    name = "catppuccin",
-    opts = {
-      jflavour = "frappe", -- latte, frappe, macchiato, mocha
-      transparent_background = true, -- disables setting the background color.
-      integrations = {
-        aerial = true,
-        alpha = true,
-        cmp = true,
-        dashboard = true,
-        flash = true,
-        gitsigns = true,
-        headlines = true,
-        illuminate = true,
-        indent_blankline = { enabled = true },
-        leap = true,
-        lsp_trouble = true,
-        mason = true,
-        markdown = true,
-        mini = true,
-        native_lsp = {
-          enabled = true,
-          underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
-          },
-        },
-        navic = { enabled = true, custom_bg = "lualine" },
-        neotest = true,
-        neotree = true,
-        noice = true,
-        notify = true,
-        semantic_tokens = true,
-        telescope = true,
-        treesitter = true,
-        treesitter_context = true,
-        which_key = true,
-      },
-    },
-  },
   {
     "shellRaining/hlchunk.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -60,16 +28,17 @@ return {
           style = { "#CA9EE6" },
         },
         indent = {
-          enable = true,
-          priority = 10,
-          use_treesitter = false,
+          enable = false,
+          priority = 1,
+          use_treesitter = true,
           chars = { "│" },
-          ahead_lines = 5,
-          delay = 100,
+          ahead_lines = 1,
+          delay = 10,
+          style = { "#424757" },
         },
         line_num = {
           style = { "#CA9EE6" },
-          enable = true,
+          enable = false,
         },
       })
     end,
@@ -85,7 +54,6 @@ return {
 
   {
     "akinsho/bufferline.nvim",
-    event = "VeryLazy",
     opts = {
       options = {
         always_show_bufferline = true,
