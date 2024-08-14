@@ -47,7 +47,9 @@ return {
       dependencies = {
         "supermaven-inc/supermaven-nvim",
         build = ":SupermavenUseFree", -- remove this line if you are using pro
-        opts = {},
+        opts = {
+          log_level = "off", -- set to "off" to disable logging completely
+        },
       },
       opts = function(_, opts)
         table.insert(opts.sources, 1, {
@@ -97,7 +99,7 @@ return {
     -- NOTE : flutter tools
     {
       "akinsho/flutter-tools.nvim",
-      lazy = false,
+      lazy = true,
       event = "VeryLazy",
       dependencies = {
         "nvim-lua/plenary.nvim",
