@@ -14,7 +14,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = themes.rosepine,
+      colorscheme = themes.catppuccin,
     },
   },
 
@@ -63,7 +63,7 @@ return {
 
   {
     "psliwka/vim-smoothie",
-    lazy = false,
+    lazy = true,
     event = "VeryLazy",
   },
 
