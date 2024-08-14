@@ -22,6 +22,10 @@ return {
       },
       exclude = {}, -- exclude these filetypes
     },
+    keys = {
+      { "<leader>zt", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
+    },
+    event = "VeryLazy",
   },
 
   -- NOTE : mini.ai
@@ -68,6 +72,8 @@ return {
   -- NOTE : lsp saga for lsp actions
   {
     "nvimdev/lspsaga.nvim",
+    event = "VeryLazy",
+    lazy = true,
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
       "nvim-tree/nvim-web-devicons", -- optional
@@ -220,5 +226,93 @@ return {
         },
       },
     },
+  },
+
+  -- NOTE : plugin to show image
+  {
+    "3rd/image.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+          require("nvim-treesitter.configs").setup({
+            ensure_installed = { "markdown" },
+            highlight = { enable = true },
+            modules = {},
+            sync_install = false,
+            ignore_install = {},
+            auto_install = true,
+          })
+        end,
+      },
+    },
+    opts = {
+      backend = "kitty",
+      integrations = {
+        markdown = {
+          enabled = true,
+          clear_in_insert_mode = false,
+          download_remote_images = true,
+          only_render_image_at_cursor = false,
+          filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+        },
+        neorg = {
+          enabled = true,
+          clear_in_insert_mode = false,
+          download_remote_images = true,
+          only_render_image_at_cursor = false,
+          filetypes = { "norg" },
+        },
+      },
+      max_width = nil,
+      max_height = nil,
+      max_width_window_percentage = nil,
+      max_height_window_percentage = 50,
+      kitty_method = "normal",
+    },
+  },
+
+  -- NOTE : make telescope showing image
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      { "IlhamSuandi/telescope-media-files.nvim" }, -- NOTE : this is my fork to fix --animate --center things...
+      { "nvim-lua/popup.nvim" },
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim" },
+    },
+
+    opts = {
+      defaults = {
+        layout_strategy = "horizontal",
+        layout_config = { prompt_position = "top" },
+        sorting_strategy = "ascending",
+        winblend = 0,
+      },
+
+      extensions = {
+        media_files = {
+          -- filetypes whitelist
+          -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+          filetypes = { "png", "webp", "jpg", "jpeg" },
+          -- find command (defaults to `fd`)
+          find_cmd = "rg",
+          preview_cmd = function(filepath)
+            vim.fn.termopen(string.format("cd %s", filepath))
+          end,
+        },
+      },
+    },
+
+    keys = {
+      { "<leader>fa", "<cmd>Telescope media_files<cr>", desc = "Find asset media files" },
+    },
+
+    config = function(_, opts)
+      require("telescope").setup(opts)
+      require("telescope").load_extension("media_files")
+    end,
   },
 }
