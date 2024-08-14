@@ -39,19 +39,17 @@ map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 map("i", "<C-l>", "<Left>", { desc = "go to left in insert mode" })
 map("i", "<C-h>", "<Left>", { desc = "go to left in insert mode" })
 -- --
--- NOTE : buffers
-map("n", "<leader>zt", "<cmd>Twilight<cr>", { desc = "Twilight toggle" })
 
 -- NOTE : noice mappings
 map("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "noice dismiss notification" })
 map("n", "<leader>nl", "<cmd>NoiceLast<CR>", { desc = "noice last notification" })
 map("n", "<leader>nt", "<cmd>NoiceTelescope<CR>", { desc = "noice telescope" })
 
--- NOTE <cmd> presence nvim
+-- NOTE : presence nvim
 map("n", "<leader>pu", "<cmd>lua require('presence'):update()<cr>", { desc = "presence update" })
 map("n", "<leader>pc", "<cmd>lua require('presence'):cancel()<cr>", { desc = "presence close/cancel" })
 
--- NOTE <cmd> lspsaga
+-- NOTE : lspsaga
 map({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts("lspsaga code action"))
 map("n", "<leader>cd", "<cmd>Lspsaga peek_definition<cr>", opts("lspsaga peek definition"))
 map("n", "<leader>co", "<cmd>Lspsaga outline<cr>", opts("lspsaga outline"))
