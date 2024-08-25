@@ -20,6 +20,3 @@ g.lazyvim_prettier_needs_config = false
 
 -- NOTE: remove auto Lazy auto format
 g.autoformat = false
-
--- NOTE: automatically change directory of the current buffer
-opt.autochdir = true
