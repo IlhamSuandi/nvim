@@ -1,8 +1,9 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Options are automatically loaded before lazy.nstartup
+-- Default options that are always set: https://github.com/LazyLazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 --
 local opt = vim.opt
+local g = vim.g
 
 opt.confirm = false
 opt.tabstop = 2
@@ -14,7 +15,11 @@ opt.autoindent = true
 opt.smartindent = true
 opt.showmode = false
 
--- NOTE : use prettier config from workspace instead of vim default
-vim.g.lazyvim_prettier_needs_config = false
+-- NOTE : use prettier config from workspace instead of default
+g.lazyvim_prettier_needs_config = false
 
--- NOTE : codi.vim
+-- NOTE: remove auto Lazy auto format
+g.autoformat = false
+
+-- NOTE: automatically change directory of the current buffer
+opt.autochdir = true
