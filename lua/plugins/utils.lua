@@ -1,3 +1,4 @@
+local HOME = os.getenv("HOME")
 return {
   -- NOTE : twilight for dimming
   {
@@ -314,5 +315,24 @@ return {
       require("telescope").setup(opts)
       require("telescope").load_extension("media_files")
     end,
+  },
+
+  -- NOTE : markdown preview
+  {
+    "iamcco/markdown-preview.nvim",
+    ft = { "markdown" },
+    build = "cd app && yarn install",
+    config = function()
+      vim.g.mkdp_auto_start = 1
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+  },
+
+  -- NOTE : generate jsdoc
+  {
+    "heavenshell/vim-jsdoc",
+    ft = { "javascript", "javascript.jsx", "typescript", "typescript.tsx" },
+    build = "make install",
+    event = "VeryLazy",
   },
 }
