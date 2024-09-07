@@ -1,5 +1,5 @@
-local HOME = os.getenv("HOME")
 return {
+
   -- NOTE : twilight for dimming
   {
     "folke/twilight.nvim",
@@ -328,5 +328,15 @@ return {
       { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
+  },
+
+  -- NOTE : parrot for ai stuff
+  {
+    "frankroeder/parrot.nvim",
+    dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
+    -- optionally include "rcarriga/nvim-notify" for beautiful notifications
+    config = function()
+      require("config.parrot")
+    end,
   },
 }
