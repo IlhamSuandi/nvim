@@ -102,4 +102,38 @@ return {
       require("config.huez")
     end,
   },
+
+  -- NOTE : twilight for dimming
+  {
+    "folke/twilight.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>zt", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
+    },
+    config = function()
+      require("config.twilight")
+    end,
+  },
+
+  -- NOTE : zen mode
+  {
+    "folke/zen-mode.nvim",
+    keys = {
+      { "<leader>zz", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
+    },
+    config = function()
+      require("config.zen-mode")
+    end,
+  },
+
+  {
+    "pocco81/true-zen.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>za", "<cmd>TZAtaraxis<cr>", desc = "Toggle Ataraxis Mode" },
+      { "<leader>zm", "<cmd>TZMinimalist<cr>", desc = "Toggle Ataraxis Mode" },
+      { "<leader>zn", "<cmd>TZNarrow<cr>", desc = "Toggle Narrow Mode" },
+      { "<leader>zf", "<cmd>TZFocus<cr>", desc = "Toggle Focus Mode" },
+    },
+  },
 }

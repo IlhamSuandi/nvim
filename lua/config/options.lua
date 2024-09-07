@@ -4,6 +4,7 @@
 --
 local opt = vim.opt
 local g = vim.g
+local wo = vim.wo
 
 opt.confirm = false
 opt.tabstop = 2
@@ -13,7 +14,8 @@ opt.expandtab = true
 opt.smarttab = true
 opt.autoindent = true
 opt.smartindent = true
-opt.showmode = false
+opt.showmode = true
+wo.foldmethod = "manual"
 
 -- NOTE : use prettier config from workspace instead of default
 g.lazyvim_prettier_needs_config = false

@@ -75,3 +75,9 @@ map({ "n", "x", "v" }, "<leader>aa", ":'<,'>AIAppend<cr>", opts("AI Append"))
 -- NOTE : remove keymap
 unmap("n", "<leader>uC")
 map("n", "<leader>uC", "<cmd>Huez<cr>", opts("Huez Change Theme"))
+
+-- NOTE : true-zen keymap
+map("n", "<leader>za", "<cmd>TZAtaraxis<cr>", opts("Toggle Ataraxis Mode"))
+map("n", "<leader>zm", "<cmd>TZMinimalist<cr>", opts("Toggle Minimalist Mode"))
+map("n", "<leader>zn", "<cmd>TZNarrow<cr>", opts("Toggle Narrow Mode"))
+map("n", "<leader>zf", "<cmd>TZFocus<cr>", opts("Toggle Focus Mode"))
