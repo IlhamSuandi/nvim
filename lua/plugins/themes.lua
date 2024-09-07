@@ -1,18 +1,8 @@
 return {
-  -- NOTE : darkvoid
-  {
-    "aliqyan-21/darkvoid.nvim",
-    lazy = true,
-    name = "darkvoid",
-    config = function()
-      require("config.themes.darkvoid")
-    end,
-  },
-
   -- NOTE : catppuccin
   {
     "catppuccin/nvim",
-    lazy = true,
+    lazy = false,
     name = "catppuccin",
     config = function()
       require("config.themes.catppuccin")
@@ -22,7 +12,7 @@ return {
   -- NOTE : kanagawa
   {
     "rebelot/kanagawa.nvim",
-    lazy = true,
+    lazy = false,
     name = "kanagawa",
     config = function()
       require("config.themes.kanagawa")
@@ -31,7 +21,7 @@ return {
 
   {
     "shaunsingh/nord.nvim",
-    lazy = true,
+    lazy = false,
     name = "nord",
     config = function()
       require("config.themes.nord")
@@ -41,7 +31,7 @@ return {
   -- NOTE : rose-pine
   {
     "rose-pine/neovim",
-    lazy = true,
+    lazy = false,
     name = "rose-pine",
     config = function()
       require("config.themes.rose-pine")
@@ -51,20 +41,20 @@ return {
   -- NOTE : rasmus
   {
     "kvrohit/rasmus.nvim",
-    lazy = true,
+    lazy = false,
     name = "rasmus",
     config = function()
       require("config.themes.rasmus")
     end,
   },
 
-  -- NOTE : onedark
+  -- NOTE : onedarkpro
   {
-    "navarasu/onedark.nvim",
-    lazy = true,
-    name = "onedark",
+    "olimorris/onedarkpro.nvim",
+    lazy = false,
+    name = "onedarkpro",
     config = function()
-      require("config.themes.onedark")
+      require("config.themes.onedarkpro")
     end,
   },
 }

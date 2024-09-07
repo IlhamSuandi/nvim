@@ -93,4 +93,13 @@ return {
       })
     end,
   },
+
+  -- NOTE : colorscheme changer
+  {
+    "vague2k/huez.nvim",
+    event = "UIEnter",
+    config = function()
+      require("config.huez")
+    end,
+  },
 }

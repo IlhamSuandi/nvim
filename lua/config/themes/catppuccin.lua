@@ -1,5 +1,5 @@
 require("catppuccin").setup({
-  flavour = "mocha", -- latte, frappe, macchiato, mocha
+  flavour = "frappe", -- latte, frappe, macchiato, mocha
   transparent_background = true, -- disables setting the background color.
   integrations = {
     aerial = true,
@@ -25,6 +25,17 @@ require("catppuccin").setup({
         information = { "undercurl" },
       },
     },
+    custom_highlights = function()
+      return {
+        CursorLineNr = { bg = "#424757" },
+        CursorLine = { bg = "#424757" },
+        LineNr = { fg = "#8b9199" },
+        Visual = { bg = "#424757" },
+        GitSignsAdd = { bg = "none" },
+        GitSignsChange = { bg = "none" },
+        GitSignsDelete = { bg = "none" },
+      }
+    end,
     navic = { enabled = true, custom_bg = "lualine" },
     neotest = true,
     neotree = true,
