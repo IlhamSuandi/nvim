@@ -14,8 +14,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("config.options")
-
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -45,6 +43,7 @@ require("lazy").setup({
 
     -- NOTE: coding
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
+    { import = "lazyvim.plugins.extras.coding.neogen" },
 
     -- NOTE: custom plugins
     { import = "plugins" },
@@ -100,3 +99,4 @@ require("lazy").setup({
 })
 
 require("config.highlight").setup()
+require("config.options")
