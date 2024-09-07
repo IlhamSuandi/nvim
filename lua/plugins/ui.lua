@@ -6,8 +6,8 @@ local themes = {
   nord = "nord",
   rosepine = "rose-pine",
   rasmus = "rasmus",
-  darkvoid = "darkvoid",
-  onedark = "onedark",
+  onedarkpro = "onedarkpro",
+  everforest = "everforest",
 }
 
 return {

@@ -19,6 +19,7 @@ return {
     end,
   },
 
+  -- NOTE : nord
   {
     "shaunsingh/nord.nvim",
     lazy = false,
@@ -55,6 +56,16 @@ return {
     name = "onedarkpro",
     config = function()
       require("config.themes.onedarkpro")
+    end,
+  },
+
+  -- NOTE : everforest
+  {
+    "sainnhe/everforest",
+    lazy = false,
+    name = "everforest",
+    config = function()
+      require("config.themes.everforest")
     end,
   },
 }
