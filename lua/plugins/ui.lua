@@ -26,7 +26,7 @@ return {
       require("hlchunk").setup({
         chunk = {
           enable = true,
-          style = { "#CA9EE6" },
+          style = { "#ffffff" },
         },
         indent = {
           enable = false,
