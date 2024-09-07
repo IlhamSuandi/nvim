@@ -263,6 +263,7 @@ return {
   -- NOTE : parrot for ai stuff
   {
     "frankroeder/parrot.nvim",
+    event = "VeryLazy",
     dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
     config = function()
       require("config.parrot")
