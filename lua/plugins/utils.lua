@@ -125,15 +125,6 @@ return {
     },
   },
 
-  -- NOTE : hardtime
-  {
-    "m4xshen/hardtime.nvim",
-    enabled = false,
-    event = "VeryLazy",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {},
-  },
-
   -- NOTE : plugin to show image
   {
     "3rd/image.nvim",
@@ -267,6 +258,27 @@ return {
     dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
     config = function()
       require("config.parrot")
+    end,
+  },
+
+  -- NOTE : neotest for testing
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/neotest-jest",
+    },
+    config = function(_, opts)
+      table.insert(
+        opts.adapters,
+        require("neotest-jest")({
+          jestCommand = "npm test --",
+          jestConfigFile = "custom.jest.config.ts",
+          env = { CI = true },
+          cwd = function()
+            return vim.fn.getcwd()
+          end,
+        })
+      )
     end,
   },
 }

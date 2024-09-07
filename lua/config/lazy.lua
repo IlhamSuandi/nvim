@@ -28,6 +28,9 @@ require("lazy").setup({
     -- NOTE: linting
     { import = "lazyvim.plugins.extras.linting.eslint" },
 
+    -- NOTE: testing
+    { import = "lazyvim.plugins.extras.test.core" },
+
     -- NOTE : formatter
     { import = "lazyvim.plugins.extras.formatting.black" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
