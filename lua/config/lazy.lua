@@ -47,6 +47,7 @@ require("lazy").setup({
     -- NOTE: coding
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.coding.neogen" },
+    { import = "lazyvim.plugins.extras.coding.yanky" },
 
     -- NOTE: custom plugins
     { import = "plugins" },
