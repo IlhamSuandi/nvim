@@ -45,10 +45,6 @@ map("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "noice dismiss notifica
 map("n", "<leader>nl", "<cmd>NoiceLast<CR>", { desc = "noice last notification" })
 map("n", "<leader>nt", "<cmd>NoiceTelescope<CR>", { desc = "noice telescope" })
 
--- NOTE : presence nvim
-map("n", "<leader>pu", "<cmd>lua require('presence'):update()<cr>", { desc = "presence update" })
-map("n", "<leader>pc", "<cmd>lua require('presence'):cancel()<cr>", { desc = "presence close/cancel" })
-
 -- NOTE : lspsaga
 map({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts("lspsaga code action"))
 map("n", "<leader>cd", "<cmd>Lspsaga peek_definition<cr>", opts("lspsaga peek definition"))
@@ -81,3 +77,11 @@ map("n", "<leader>za", "<cmd>TZAtaraxis<cr>", opts("Toggle Ataraxis Mode"))
 map("n", "<leader>zm", "<cmd>TZMinimalist<cr>", opts("Toggle Minimalist Mode"))
 map("n", "<leader>zn", "<cmd>TZNarrow<cr>", opts("Toggle Narrow Mode"))
 map("n", "<leader>zf", "<cmd>TZFocus<cr>", opts("Toggle Focus Mode"))
+
+-- NOTE : obsidian keymap
+map("n", "<leader>Of", "<cmd>ObsidianQuickSwitch<cr>", opts("Obsidian Quick Switch"))
+map("n", "<leader>Ot", "<cmd>ObsidianTags<cr>", opts("Obsidian Tags"))
+map("n", "<leader>Ow", "<cmd>ObsidianWorkspace<cr>", opts("Obsidian Change Workspace"))
+map("n", "<leader>Occ", "<cmd>ObsidianToday<cr>", opts("Obsidian Create Today Note"))
+map("n", "<leader>Oct", "<cmd>ObsidianTomorrow<cr>", opts("Obsidian Create Tomorrow Note"))
+map("n", "<leader>Ocy", "<cmd>ObsidianYesterday<cr>", opts("Obsidian Create Yesterday Note"))
