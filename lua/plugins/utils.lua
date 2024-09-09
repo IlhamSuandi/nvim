@@ -350,14 +350,7 @@ return {
           name = "work",
           path = "~/vaults/personal",
           overrides = {
-            notes_subdir = "work",
-          },
-        },
-        {
-          path = "~/vaults/personal/work",
-          name = "work ideas",
-          overrides = {
-            notes_subdir = "ideas",
+            notes_subdir = "works",
           },
         },
         {
@@ -392,5 +385,17 @@ return {
         enable = false,
       },
     },
+  },
+  -- NOTE : visual multi
+  {
+    "mg979/vim-visual-multi",
+    init = function()
+      vim.g.VM_maps = {
+        ["Find Under"] = "gn",
+        ["Find Subword Under"] = "gn",
+        ["Add Cursor Down"] = "gj",
+        ["Add Cursor Up"] = "gk",
+      }
+    end,
   },
 }
