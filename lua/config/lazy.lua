@@ -24,8 +24,10 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.python" },
-
+    { import = "lazyvim.plugins.extras.lang.go" },
+    { import = "lazyvim.plugins.extras.lang.git" },
     -- NOTE: linting
+
     { import = "lazyvim.plugins.extras.linting.eslint" },
 
     -- NOTE: testing
@@ -39,15 +41,15 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
     { import = "lazyvim.plugins.extras.editor.refactoring" },
 
-    { import = "lazyvim.plugins.extras.editor.overseer" },
-
     -- NOTE : debugger
     { import = "lazyvim.plugins.extras.dap.core" },
 
     -- NOTE: coding
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
-    { import = "lazyvim.plugins.extras.coding.neogen" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
+
+    -- NOTE : utils
+    { import = "lazyvim.plugins.extras.util.octo" },
 
     -- NOTE: custom plugins
     { import = "plugins" },
