@@ -1,17 +1,3 @@
-local lspEnsureInstalled = {
-  "dartls", -- dart formatter
-  "html", -- html formatter
-  "javascript", -- javascript formatter
-  "json", -- json formatter
-  "lua", -- lua formatter
-  "markdown", -- markdown formatter
-  "python", -- python formatter
-  "tsx", -- typescript formatter
-  "typescript", -- typescript formatter
-  "vim", -- vimscript formatter
-  "yaml", -- yaml formatter
-}
-
 local masonEnsureInstalled = {
   "stylua", -- lua formatter
   "shellcheck", -- shell script linter
@@ -26,7 +12,14 @@ return {
       "nvim-lspconfig",
       opts = {
         inlay_hints = { enabled = false },
-        ensure_installed = lspEnsureInstalled,
+        servers = {
+          eslint = {
+            settings = {
+              workingDirectories = { mode = "all" },
+              format = true,
+            },
+          },
+        },
       },
       init = function()
         local keys = require("lazyvim.plugins.lsp.keymaps").get()

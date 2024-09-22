@@ -26,16 +26,12 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.git" },
-    -- NOTE: linting
-
-    { import = "lazyvim.plugins.extras.linting.eslint" },
 
     -- NOTE: testing
     { import = "lazyvim.plugins.extras.test.core" },
 
     -- NOTE : formatter
     { import = "lazyvim.plugins.extras.formatting.black" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
 
     -- NOTE : editor
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
@@ -56,7 +52,7 @@ require("lazy").setup({
   },
   defaults = {
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
-    lazy = false,
+    lazy = true,
     event = "VeryLazy",
     -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
     -- have outdated releases, which may break your Neovim install.
