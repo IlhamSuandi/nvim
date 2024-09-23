@@ -21,6 +21,7 @@ return {
   -- NOTE : hlchunk for chunk, indent, line_num
   {
     "shellRaining/hlchunk.nvim",
+    enabled = false,
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("hlchunk").setup({
@@ -95,11 +96,23 @@ return {
   },
 
   -- NOTE : colorscheme changer
+  -- {
+  --   "vague2k/huez.nvim",
+  --   enabled = true,
+  --   event = "UIEnter",
+  --   config = function()
+  --     require("config.huez")
+  --   end,
+  -- },
+
   {
-    "vague2k/huez.nvim",
-    event = "UIEnter",
+    "zaldih/themery.nvim",
+    lazy = false,
     config = function()
-      require("config.huez")
+      require("themery").setup({
+        themes = Themes, -- Your list of installed colorschemes.
+        livePreview = true, -- Apply theme while picking. Default to true.
+      })
     end,
   },
 
@@ -129,11 +142,19 @@ return {
   {
     "pocco81/true-zen.nvim",
     event = "VeryLazy",
+    lazy = true,
     keys = {
       { "<leader>za", "<cmd>TZAtaraxis<cr>", desc = "Toggle Ataraxis Mode" },
       { "<leader>zm", "<cmd>TZMinimalist<cr>", desc = "Toggle Ataraxis Mode" },
       { "<leader>zn", "<cmd>TZNarrow<cr>", desc = "Toggle Narrow Mode" },
       { "<leader>zf", "<cmd>TZFocus<cr>", desc = "Toggle Focus Mode" },
     },
+  },
+
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function()
+      return require("config.lualine")
+    end,
   },
 }

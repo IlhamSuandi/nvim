@@ -1,8 +1,8 @@
-return {
+local M = {
   -- NOTE : catppuccin
   {
     "catppuccin/nvim",
-    lazy = false,
+    lazy = true,
     name = "catppuccin",
     config = function()
       require("config.themes.catppuccin")
@@ -12,7 +12,7 @@ return {
   -- NOTE : kanagawa
   {
     "rebelot/kanagawa.nvim",
-    lazy = false,
+    lazy = true,
     name = "kanagawa",
     config = function()
       require("config.themes.kanagawa")
@@ -22,7 +22,7 @@ return {
   -- NOTE : nord
   {
     "shaunsingh/nord.nvim",
-    lazy = false,
+    lazy = true,
     name = "nord",
     config = function()
       require("config.themes.nord")
@@ -32,7 +32,7 @@ return {
   -- NOTE : rose-pine
   {
     "rose-pine/neovim",
-    lazy = false,
+    lazy = true,
     name = "rose-pine",
     config = function()
       require("config.themes.rose-pine")
@@ -42,7 +42,7 @@ return {
   -- NOTE : rasmus
   {
     "kvrohit/rasmus.nvim",
-    lazy = false,
+    lazy = true,
     name = "rasmus",
     config = function()
       require("config.themes.rasmus")
@@ -52,8 +52,8 @@ return {
   -- NOTE : onedarkpro
   {
     "olimorris/onedarkpro.nvim",
-    lazy = false,
-    name = "onedarkpro",
+    lazy = true,
+    name = "onedark",
     config = function()
       require("config.themes.onedarkpro")
     end,
@@ -62,10 +62,40 @@ return {
   -- NOTE : everforest
   {
     "sainnhe/everforest",
-    lazy = false,
+    lazy = true,
     name = "everforest",
     config = function()
       require("config.themes.everforest")
     end,
   },
+
+  -- NOTE : tokyonight
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    name = "tokyonight",
+    config = function()
+      require("config.themes.tokyonight")
+    end,
+  },
+
+  {
+    "Everblush/nvim",
+    lazy = true,
+    name = "everblush",
+    config = function()
+      require("config.themes.everblush")
+    end,
+  },
 }
+
+Themes = {}
+
+for _, plugin in ipairs(M) do
+  table.insert(Themes, {
+    name = plugin.name,
+    colorscheme = plugin.name,
+  })
+end
+
+return M

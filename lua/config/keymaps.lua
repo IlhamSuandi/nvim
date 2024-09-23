@@ -70,7 +70,7 @@ map({ "n", "x", "v" }, "<leader>aa", ":'<,'>AIAppend<cr>", opts("AI Append"))
 
 -- NOTE : remove keymap
 unmap("n", "<leader>uC")
-map("n", "<leader>uC", "<cmd>Huez<cr>", opts("Huez Change Theme"))
+map("n", "<leader>uC", "<cmd>Themery<cr>", opts("Themery Change Theme"))
 
 -- NOTE : true-zen keymap
 map("n", "<leader>za", "<cmd>TZAtaraxis<cr>", opts("Toggle Ataraxis Mode"))
