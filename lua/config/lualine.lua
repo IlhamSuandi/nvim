@@ -1,4 +1,6 @@
 local icons = LazyVim.config.icons
+local auto_theme_custom = require("lualine.themes.auto")
+auto_theme_custom.normal.c.bg = "none"
 
 return {
   sections = {
@@ -52,6 +54,7 @@ return {
     },
   },
   options = {
+    theme = auto_theme_custom,
     section_separators = { left = "", right = "" },
   },
 }
