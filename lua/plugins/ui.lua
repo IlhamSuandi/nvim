@@ -96,18 +96,13 @@ return {
   },
 
   -- NOTE : colorscheme changer
-  -- {
-  --   "vague2k/huez.nvim",
-  --   enabled = true,
-  --   event = "UIEnter",
-  --   config = function()
-  --     require("config.huez")
-  --   end,
-  -- },
-
   {
     "zaldih/themery.nvim",
     lazy = false,
+    keys = {
+      { "<leader>uC", "<cmd>Themery<cr>", desc = "Change Theme" },
+    },
+    event = "VeryLazy",
     config = function()
       require("themery").setup({
         themes = Themes, -- Your list of installed colorschemes.

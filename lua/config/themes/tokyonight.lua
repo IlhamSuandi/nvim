@@ -8,6 +8,9 @@ require("tokyonight").setup({
     -- Value is any valid attr-list value for `:help nvim_set_hl`
     comments = { italic = true },
     keywords = { italic = true },
+    CursorLineNr = { fg = "#424757" },
+    CursorLine = { bg = "#424757" },
+    LineNr = { fg = "#8b9199" },
     functions = {},
     variables = {},
     -- Background styles. Can be "dark", "transparent" or "normal"

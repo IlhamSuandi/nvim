@@ -79,12 +79,23 @@ local M = {
     end,
   },
 
+  -- NOTE : everblush
   {
     "Everblush/nvim",
     lazy = true,
     name = "everblush",
     config = function()
       require("config.themes.everblush")
+    end,
+  },
+
+  -- NOTE : moonfly
+  {
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = true,
+    config = function()
+      require("config.themes.moonfly")
     end,
   },
 }
