@@ -139,20 +139,6 @@ return {
     },
   },
 
-  -- NOTE : console ninja alternative
-  {
-    "metakirby5/codi.vim",
-    event = "VeryLazy",
-    config = function()
-      vim.g["codi#interpreters"] = {
-        python = {
-          bin = "/usr/bin/python3",
-          prompt = "^\\(>>>\\|\\.\\.\\.\\) ",
-        },
-      }
-    end,
-  },
-
   -- NOTE : snipe for picking buffers
   {
     "leath-dub/snipe.nvim",
@@ -272,14 +258,6 @@ return {
       vim.g.mkdp_auto_start = 1
       vim.g.mkdp_filetypes = { "markdown" }
     end,
-  },
-
-  -- NOTE : generate jsdoc
-  {
-    "heavenshell/vim-jsdoc",
-    ft = { "javascript", "javascript.jsx", "typescript", "typescript.tsx" },
-    build = "make install",
-    event = "VeryLazy",
   },
 
   -- NOTE : tmux integration
@@ -410,5 +388,31 @@ return {
       "neovim/nvim-lspconfig", -- optional
     },
     opts = {}, -- your configuration
+  },
+
+  {
+    "folke/flash.nvim",
+    opts = {
+      highlight = {
+        -- show a backdrop with hl FlashBackdrop
+        backdrop = false,
+        -- Highlight the search matches
+        matches = true,
+        -- extmark priority
+        priority = 5000,
+        groups = {
+          match = "FlashMatch",
+          current = "FlashCurrent",
+          backdrop = "FlashBackdrop",
+          label = "FlashLabel",
+        },
+      },
+      modes = {
+        char = {
+          enabled = true,
+          highlight = { backdrop = false },
+        },
+      },
+    },
   },
 }
