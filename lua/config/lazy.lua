@@ -21,17 +21,18 @@ require("lazy").setup({
 
     -- import/override with your plugins
     -- NOTE: language
-    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.typescript", ft = "typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.python" },
-    { import = "lazyvim.plugins.extras.lang.go" },
+    { import = "lazyvim.plugins.extras.lang.python", ft = "python" },
+    { import = "lazyvim.plugins.extras.lang.go", ft = "go" },
     { import = "lazyvim.plugins.extras.lang.git" },
+    { import = "lazyvim.plugins.extras.lang.sql" },
 
     -- NOTE: testing
     { import = "lazyvim.plugins.extras.test.core" },
 
     -- NOTE : formatter
-    { import = "lazyvim.plugins.extras.formatting.black" },
+    { import = "lazyvim.plugins.extras.formatting.black", ft = "python" },
 
     -- NOTE : editor
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
@@ -46,6 +47,7 @@ require("lazy").setup({
 
     -- NOTE : utils
     { import = "lazyvim.plugins.extras.util.octo" },
+    { import = "lazyvim.plugins.extras.util.rest" },
 
     -- NOTE: custom plugins
     { import = "plugins" },
