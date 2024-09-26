@@ -98,6 +98,14 @@ local M = {
       require("config.themes.moonfly")
     end,
   },
+  {
+    "Yazeed1s/minimal.nvim",
+    name = "minimal",
+    lazy = true,
+    config = function()
+      require("config.themes.minimal")
+    end,
+  },
 }
 
 Themes = {}
