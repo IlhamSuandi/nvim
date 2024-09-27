@@ -152,4 +152,24 @@ return {
       return require("config.lualine")
     end,
   },
+
+  {
+    "nvimdev/dashboard-nvim",
+    opts = function(_, opts)
+      table.remove(opts.config.center, 6)
+      table.insert(opts.config.center, 6, {
+        action = function()
+          require("persistence").load()
+          vim.cmd("ScopeLoadState") -- Load the scope state after initialization
+        end,
+        desc = " Restore Session",
+        icon = " ",
+        key = "s",
+      })
+      for _, button in ipairs(opts.config.center) do
+        button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
+        button.key_format = "  %s"
+      end
+    end,
+  },
 }

@@ -10,6 +10,7 @@ return {
         { "<leader>z", group = "zen mode" },
         { "<leader>O", group = "Obsidian" },
         { "<leader>Oc", group = "Create" },
+        { "<leader>m", group = "Manage Tabs" },
       },
     },
   },
@@ -23,7 +24,6 @@ return {
     end,
   },
 
-  -- NOTE : discord rich presence
   {
     "andweeb/presence.nvim",
     event = "BufRead",
@@ -414,5 +414,24 @@ return {
         },
       },
     },
+  },
+
+  {
+    "kien/tabman.vim",
+    lazy = false,
+    event = "VeryLazy",
+  },
+
+  {
+    "tiagovla/scope.nvim",
+    lazy = false,
+    config = function()
+      vim.opt.sessionoptions = { -- required
+        "buffers",
+        "tabpages",
+        "globals",
+      }
+      require("scope").setup()
+    end,
   },
 }
