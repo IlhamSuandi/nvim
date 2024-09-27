@@ -15,6 +15,9 @@ opt.smarttab = true
 opt.autoindent = true
 opt.smartindent = true
 opt.showmode = true
+opt.updatetime = 100
+opt.completeopt = { "menu", "menuone", "noselect" }
+
 wo.foldmethod = "manual"
 
 -- NOTE : use prettier config from workspace instead of default
@@ -22,3 +25,5 @@ g.lazyvim_prettier_needs_config = false
 
 -- NOTE: remove auto Lazy auto format
 g.autoformat = false
+
+vim.diagnostic.config({ virtual_text = false, signs = false, update_in_insert })

@@ -50,6 +50,7 @@ return {
           group_index = 1,
           priority = 100,
         })
+        table.insert(opts.experimental.ghost_text, false)
       end,
     },
 
