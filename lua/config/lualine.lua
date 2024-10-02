@@ -62,6 +62,6 @@ return {
   },
   options = {
     theme = auto_theme_custom,
-    section_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
   },
 }
