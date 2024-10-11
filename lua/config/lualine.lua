@@ -6,6 +6,21 @@ auto_theme_custom.normal.b.bg = "none"
 return {
   sections = {
     lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+    lualine_c = {
+      {
+        function()
+          local filepath = vim.fn.expand("%:p")
+          -- Split the path by "/"
+          local path_parts = vim.split(filepath, "/")
+          -- Get the last two components of the path
+          if #path_parts > 1 then
+            return table.concat(path_parts, "/", #path_parts - 1)
+          else
+            return vim.fn.expand("%:t") -- Just return the file name if it's in the current directory
+          end
+        end,
+      },
+    },
     lualine_x = {
       -- stylua: ignore
       {
