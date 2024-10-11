@@ -14,7 +14,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = themes.catppuccin,
+      colorscheme = themes.kanagawa,
     },
   },
 
@@ -48,10 +48,13 @@ return {
 
   -- NOTE : nvim-colorizer for coloring
   {
-    "norcalli/nvim-colorizer.lua",
+    "ilhamSuandi/nvim-colorizer.lua",
     lazy = false,
     config = function()
-      require("colorizer").setup()
+      require("colorizer").setup({ "*" }, {
+        mode = "virtualtext",
+        lowercase = true,
+      })
     end,
   },
 
@@ -171,5 +174,18 @@ return {
         button.key_format = "  %s"
       end
     end,
+  },
+
+  --  NOTE: just for fun
+  {
+    "eandrju/cellular-automaton.nvim",
+    lazy = false,
+  },
+
+  { "nvchad/volt", lazy = true },
+
+  {
+    "nvchad/minty",
+    cmd = { "Shades", "Huefy" },
   },
 }
