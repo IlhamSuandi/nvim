@@ -90,6 +90,28 @@ return {
       },
     },
 
+    -- debugger for golang
+    {
+
+      "leoluz/nvim-dap-go",
+      dependencies = {
+        "mfussenegger/nvim-dap",
+      },
+      ft = "go",
+      config = function()
+        require("dap-go").setup({
+          dap_configurations = {
+            {
+              type = "go",
+              name = "Debugging",
+              request = "launch",
+              program = "${workspaceFolder}/cmd/server",
+            },
+          },
+        })
+      end,
+    },
+
     -- NOTE : flutter tools
     {
       "akinsho/flutter-tools.nvim",
