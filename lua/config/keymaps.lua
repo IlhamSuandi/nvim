@@ -12,6 +12,7 @@ local opts = function(desc)
 end
 
 map("i", "jj", "<Esc>", opts())
+map("i", "jk", "<Esc>", opts())
 map("n", "vie", "ggVG", { desc = "everything visual everything" })
 map("n", "yie", "ggVGy", { desc = "everything yank everything" })
 map("n", "cie", "ggVGc", { desc = "everything change everything" })
@@ -85,3 +86,11 @@ map("n", "<leader>Ow", "<cmd>ObsidianWorkspace<cr>", opts("Obsidian Change Works
 map("n", "<leader>Occ", "<cmd>ObsidianToday<cr>", opts("Obsidian Create Today Note"))
 map("n", "<leader>Oct", "<cmd>ObsidianTomorrow<cr>", opts("Obsidian Create Tomorrow Note"))
 map("n", "<leader>Ocy", "<cmd>ObsidianYesterday<cr>", opts("Obsidian Create Yesterday Note"))
+
+-- NOTE : keymap for conflict
+map("n", "<leader>gxo", "<Plug>(git-conflict-ours)", opts("accept ours"))
+map("n", "<leader>gxt", "<Plug>(git-conflict-theirs)", opts("accept theirs"))
+map("n", "<leader>gxb", "<Plug>(git-conflict-both)", opts("accept both"))
+map("n", "<leader>gx0", "<Plug>(git-conflict-none)", opts("accept none"))
+map("n", "<leader>gxp", "<Plug>(git-conflict-prev-conflict)", opts("conflict prev"))
+map("n", "<leader>gxn", "<Plug>(git-conflict-next-conflict)", opts("conflict next"))

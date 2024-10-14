@@ -11,6 +11,7 @@ return {
         { "<leader>O", group = "Obsidian" },
         { "<leader>Oc", group = "Create" },
         { "<leader>m", group = "Manage Tabs" },
+        { "<leader>gx", group = "Git Conflicts" },
       },
     },
   },
@@ -24,8 +25,10 @@ return {
     end,
   },
 
+  -- NOTE : neocord for discord
   {
     "IogaMaster/neocord",
+    lazy = false,
     event = "VeryLazy",
     config = function()
       require("config.discord")
@@ -146,7 +149,10 @@ return {
       {
         "gb",
         function()
-          require("snipe").open_buffer_menu()
+          local toggle = require("snipe").create_buffer_menu_toggler({
+            max_path_width = 2,
+          })
+          toggle()
         end,
         desc = "Open Snipe buffer menu",
       },
@@ -294,19 +300,11 @@ return {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-neotest/neotest-jest",
+      "nvim-neotest/neotest-go",
+      "nvim-treesitter/nvim-treesitter",
     },
-    config = function(_, opts)
-      table.insert(
-        opts.adapters,
-        require("neotest-jest")({
-          jestCommand = "npm test --",
-          jestConfigFile = "custom.jest.config.ts",
-          env = { CI = true },
-          cwd = function()
-            return vim.fn.getcwd()
-          end,
-        })
-      )
+    config = function()
+      require("config.neotest")
     end,
   },
 
@@ -367,6 +365,7 @@ return {
   -- NOTE : visual multi
   {
     "mg979/vim-visual-multi",
+    lazy = false,
     init = function()
       vim.g.VM_maps = {
         ["Find Under"] = "gn",
@@ -433,5 +432,12 @@ return {
       }
       require("scope").setup()
     end,
+  },
+
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    lazy = false,
+    config = true,
   },
 }
