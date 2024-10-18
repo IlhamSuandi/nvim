@@ -379,14 +379,21 @@ return {
   -- NOTE : tailwind tool
   {
     "luckasRanarison/tailwind-tools.nvim",
+    ft = { "html", "css", "javascript", "typescript", "vue" },
+    lazy = false,
     name = "tailwind-tools",
     build = ":UpdateRemotePlugins",
+    event = "VeryLazy",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope.nvim", -- optional
       "neovim/nvim-lspconfig", -- optional
     },
-    opts = {}, -- your configuration
+    opts = {
+      document_color = {
+        inline_symbol = "󱓻 ", -- only used in inline mode
+      },
+    },
   },
 
   {
@@ -439,5 +446,13 @@ return {
     version = "*",
     lazy = false,
     config = true,
+  },
+
+  {
+    "NStefan002/screenkey.nvim",
+    lazy = false,
+    config = function()
+      require("config.screenkey")
+    end,
   },
 }
