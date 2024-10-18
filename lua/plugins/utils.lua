@@ -392,6 +392,7 @@ return {
     opts = {
       document_color = {
         inline_symbol = "󱓻 ", -- only used in inline mode
+        debounce = 100, -- in milliseconds, only applied in insert mode
       },
     },
   },
