@@ -12,6 +12,7 @@ return {
         { "<leader>Oc", group = "Create" },
         { "<leader>m", group = "Manage Tabs" },
         { "<leader>gx", group = "Git Conflicts" },
+        { "<leader>uS", group = "Screenkey Enable" },
       },
     },
   },
@@ -452,6 +453,9 @@ return {
   {
     "NStefan002/screenkey.nvim",
     lazy = false,
+    keys = {
+      { "<leader>uS", "<cmd>Screenkey<cr>", desc = "ScreenKey enable" },
+    },
     config = function()
       require("config.screenkey")
     end,
