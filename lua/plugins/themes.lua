@@ -106,6 +106,16 @@ local M = {
       require("config.themes.minimal")
     end,
   },
+  {
+    "aktersnurra/no-clown-fiesta.nvim",
+    name = "no-clown-fiesta",
+    lazy = true,
+    config = function()
+      require("no-clown-fiesta").setup({
+        transparent = true,
+      })
+    end,
+  },
 }
 
 Themes = {}
