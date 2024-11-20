@@ -53,7 +53,7 @@ return {
     config = function()
       require("colorizer").setup({ "*" }, {
         mode = "virtualtext",
-        lowercase = true,
+        lowercase = false,
       })
     end,
   },
@@ -64,6 +64,7 @@ return {
     opts = {
       options = {
         always_show_bufferline = true,
+        sort_by = "insert_at_end",
       },
     },
   },
@@ -102,10 +103,10 @@ return {
   {
     "zaldih/themery.nvim",
     lazy = false,
+    event = "VeryLazy",
     keys = {
       { "<leader>uC", "<cmd>Themery<cr>", desc = "Change Theme" },
     },
-    event = "VeryLazy",
     config = function()
       require("themery").setup({
         themes = Themes, -- Your list of installed colorschemes.
@@ -151,6 +152,7 @@ return {
 
   {
     "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
     opts = function()
       return require("config.lualine")
     end,
@@ -177,15 +179,21 @@ return {
   },
 
   --  NOTE: just for fun
+  -- {
+  --   "eandrju/cellular-automaton.nvim",
+  --   lazy = false,
+  --   event = "VeryLazy",
+  -- },
+  --
   {
-    "eandrju/cellular-automaton.nvim",
-    lazy = false,
+    "nvchad/volt",
+    lazy = true,
+    event = "VeryLazy",
   },
-
-  { "nvchad/volt", lazy = true },
 
   {
     "nvchad/minty",
+    event = "VeryLazy",
     cmd = { "Shades", "Huefy" },
   },
 }

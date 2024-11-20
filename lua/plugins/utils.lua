@@ -6,11 +6,9 @@ return {
     opts = {
       spec = {
         { "<leader>n", group = "notifications" },
-        { "<leader>a", group = "AI" },
+        -- { "<leader>a", group = "AI" },
         { "<leader>z", group = "zen mode" },
-        { "<leader>O", group = "Obsidian" },
         { "<leader>Oc", group = "Create" },
-        { "<leader>m", group = "Manage Tabs" },
         { "<leader>gx", group = "Git Conflicts" },
         { "<leader>uS", group = "Screenkey Enable" },
       },
@@ -39,8 +37,8 @@ return {
   -- NOTE : lsp saga for lsp actions
   {
     "nvimdev/lspsaga.nvim",
+    lazy = false,
     event = "VeryLazy",
-    lazy = true,
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
       "nvim-tree/nvim-web-devicons", -- optional
@@ -57,6 +55,7 @@ return {
         keys = {
           toggle_or_jump = "<CR>",
         },
+        win_width = 50,
       },
     },
     config = function(_, opts)
@@ -125,7 +124,6 @@ return {
   -- NOTE : leetcode things
   {
     "kawre/leetcode.nvim",
-    -- event = "VeryLazy",
     build = ":TSUpdate html",
     dependencies = {
       "nvim-telescope/telescope.nvim",
@@ -143,34 +141,10 @@ return {
     },
   },
 
-  -- NOTE : snipe for picking buffers
-  {
-    "leath-dub/snipe.nvim",
-    keys = {
-      {
-        "gb",
-        function()
-          local toggle = require("snipe").create_buffer_menu_toggler({
-            max_path_width = 2,
-          })
-          toggle()
-        end,
-        desc = "Open Snipe buffer menu",
-      },
-    },
-    opts = {
-      hints = {
-        dictionary = "123456789",
-      },
-      navigate = {
-        cancel_snipe = "q",
-      },
-    },
-  },
-
   -- NOTE : plugin to show image
   {
     "3rd/image.nvim",
+    lazy = false,
     event = "VeryLazy",
     dependencies = {
       {
@@ -286,16 +260,6 @@ return {
     },
   },
 
-  -- NOTE : parrot for ai stuff
-  {
-    "frankroeder/parrot.nvim",
-    event = "VeryLazy",
-    dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
-    config = function()
-      require("config.parrot")
-    end,
-  },
-
   -- NOTE : neotest for testing
   {
     "nvim-neotest/neotest",
@@ -310,59 +274,59 @@ return {
   },
 
   -- NOTE : obsidian for note taking
-  {
-    "epwalsh/obsidian.nvim",
-    event = "VeryLazy",
-    ft = "markdown",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    opts = {
-      workspaces = {
-        {
-          name = "personal",
-          path = "~/vaults/personal",
-        },
-        {
-          name = "work",
-          path = "~/vaults/personal",
-          overrides = {
-            notes_subdir = "works",
-          },
-        },
-        {
-          name = "project ideas",
-          path = "~/vaults/personal/ideas",
-          overrides = {
-            notes_subdir = "ideas/project_ideas",
-          },
-        },
-        {
-          name = "brainstorming",
-          path = "~/vaults/personal/ideas",
-          overrides = {
-            notes_subdir = "ideas/brainstorming",
-          },
-        },
-      },
-      notes_subdir = "notes",
-      daily_notes = {
-        folder = "notes/dailies",
-        date_format = "%Y-%m-%d",
-        alias_format = "%B %-d, %Y",
-        default_tags = { "daily-notes" },
-        template = "daily.md",
-      },
-      templates = {
-        folder = "templates",
-        date_format = "%Y-%m-%d-%a",
-        time_format = "%H:%M",
-      },
-      ui = {
-        enable = false,
-      },
-    },
-  },
+  -- {
+  --   "epwalsh/obsidian.nvim",
+  --   event = "VeryLazy",
+  --   ft = "markdown",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   opts = {
+  --     workspaces = {
+  --       {
+  --         name = "personal",
+  --         path = "~/vaults/personal",
+  --       },
+  --       {
+  --         name = "work",
+  --         path = "~/vaults/personal",
+  --         overrides = {
+  --           notes_subdir = "works",
+  --         },
+  --       },
+  --       {
+  --         name = "project ideas",
+  --         path = "~/vaults/personal/ideas",
+  --         overrides = {
+  --           notes_subdir = "ideas/project_ideas",
+  --         },
+  --       },
+  --       {
+  --         name = "brainstorming",
+  --         path = "~/vaults/personal/ideas",
+  --         overrides = {
+  --           notes_subdir = "ideas/brainstorming",
+  --         },
+  --       },
+  --     },
+  --     notes_subdir = "notes",
+  --     daily_notes = {
+  --       folder = "notes/dailies",
+  --       date_format = "%Y-%m-%d",
+  --       alias_format = "%B %-d, %Y",
+  --       default_tags = { "daily-notes" },
+  --       template = "daily.md",
+  --     },
+  --     templates = {
+  --       folder = "templates",
+  --       date_format = "%Y-%m-%d-%a",
+  --       time_format = "%H:%M",
+  --     },
+  --     ui = {
+  --       enable = false,
+  --     },
+  --   },
+  -- },
   -- NOTE : visual multi
   {
     "mg979/vim-visual-multi",
@@ -381,10 +345,9 @@ return {
   {
     "luckasRanarison/tailwind-tools.nvim",
     ft = { "html", "css", "javascript", "typescript", "vue" },
-    lazy = false,
+    lazy = true,
     name = "tailwind-tools",
     build = ":UpdateRemotePlugins",
-    event = "VeryLazy",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope.nvim", -- optional
@@ -425,12 +388,6 @@ return {
   },
 
   {
-    "kien/tabman.vim",
-    lazy = false,
-    event = "VeryLazy",
-  },
-
-  {
     "tiagovla/scope.nvim",
     lazy = false,
     config = function()
@@ -452,12 +409,88 @@ return {
 
   {
     "NStefan002/screenkey.nvim",
-    lazy = false,
+    lazy = true,
     keys = {
       { "<leader>uS", "<cmd>Screenkey<cr>", desc = "ScreenKey enable" },
     },
     config = function()
       require("config.screenkey")
     end,
+  },
+
+  {
+    "otavioschwanck/arrow.nvim",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+    },
+    lazy = false,
+    opts = {
+      show_icons = true,
+      leader_key = '"', -- Recommended to be a single key
+      buffer_leader_key = "M", -- Per Buffer Mappings
+    },
+  },
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false, -- set this if you want to always pull the latest change
+    opts = {
+      provider = "gemini", -- You can then change this provider here
+      gemini = { -- see https://ai.google.dev/api/generate-content#request-body_1
+        generationConfig = {
+          stopSequences = { "test" },
+        },
+      },
+    },
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = "make",
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            -- required for Windows users
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        -- Make sure to set this up properly if you have lazy=true
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
+
+  {
+    "ibhagwan/fzf-lua",
+    opts = {
+      fzf_opts = {
+        ["--no-scrollbar"] = false,
+      },
+    },
+  },
+
+  {
+    "pteroctopus/faster.nvim",
   },
 }
