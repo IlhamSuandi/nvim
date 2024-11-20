@@ -26,4 +26,4 @@ g.lazyvim_prettier_needs_config = false
 -- NOTE: remove auto Lazy auto format
 g.autoformat = false
 
-vim.diagnostic.config({ virtual_text = false, signs = false, update_in_insert })
+vim.g.lazyvim_picker = "fzf"
