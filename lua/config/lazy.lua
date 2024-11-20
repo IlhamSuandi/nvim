@@ -22,21 +22,26 @@ require("lazy").setup({
     -- import/override with your plugins
     -- NOTE: language
     { import = "lazyvim.plugins.extras.lang.typescript", ft = "typescript" },
+    { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.python", ft = "python" },
     { import = "lazyvim.plugins.extras.lang.go", ft = "go" },
     { import = "lazyvim.plugins.extras.lang.git" },
     { import = "lazyvim.plugins.extras.lang.sql" },
 
+    -- NOTE: UI
+    { import = "lazyvim.plugins.extras.ui.dashboard-nvim" },
+
     -- NOTE: testing
     { import = "lazyvim.plugins.extras.test.core" },
 
     -- NOTE : formatter
     { import = "lazyvim.plugins.extras.formatting.black", ft = "python" },
+    { import = "lazyvim.plugins.extras.linting.eslint" },
 
     -- NOTE : editor
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
-    { import = "lazyvim.plugins.extras.editor.refactoring" },
+    { import = "lazyvim.plugins.extras.editor.fzf" },
 
     -- NOTE : debugger
     { import = "lazyvim.plugins.extras.dap.core" },
