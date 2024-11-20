@@ -116,7 +116,7 @@ return {
     {
       "akinsho/flutter-tools.nvim",
       lazy = true,
-      event = "VeryLazy",
+      ft = "dart",
       dependencies = {
         "nvim-lua/plenary.nvim",
         "stevearc/dressing.nvim",
@@ -132,5 +132,11 @@ return {
         })
       end,
     },
+  },
+
+  {
+    "kmonad/kmonad-vim",
+    lazy = false,
+    event = "VeryLazy",
   },
 }
