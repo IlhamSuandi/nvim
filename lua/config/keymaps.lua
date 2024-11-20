@@ -34,7 +34,6 @@ map({ "n", "v", "i" }, "<A-H>", "<cmd>BufferLineMovePrev<cr>", { desc = "move to
 map({ "n", "v", "i" }, "<A-L>", "<cmd>BufferLineMoveNext<cr>", { desc = "Next Buffer" })
 map("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Next Buffer" })
 map("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Prev Buffer" })
-map("n", "<leader>bd", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
 map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 map("i", "<C-l>", "<Left>", { desc = "go to left in insert mode" })
@@ -56,18 +55,6 @@ map("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts("lspsaga hover doc"))
 map("n", "en", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts("lspsaga jump to next diagnostic"))
 map("n", "ep", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts("lspsaga jump to prev diagnostic"))
 map("n", "es", "<cmd>Lspsaga show_line_diagnostics<cr>", opts("lspsaga show line diagnostics"))
-
--- NOTE : parrot for ai stuff
-map("n", "<leader>aP", "<cmd>AIProvider<cr>", opts("AI Change Provider"))
-map("n", "<leader>am", "<cmd>AIModel<cr>", opts("AI Change Model"))
-map("n", "<leader>ac", "<cmd>AIChatNew<cr>", opts("AI New Chat"))
-map("n", "<leader>ad", "<cmd>AIChatDelete<cr>", opts("AI Delete Chat"))
-map("n", "<leader>af", "<cmd>AIChatFinder<cr>", opts("AI Find Chat"))
-map("n", "<leader>at", "<cmd>AIChatToggle<cr>", opts("AI Toggle Chat"))
-map({ "n", "x", "v" }, "<leader>ar", ":'<,'>AIRewrite<cr>", opts("AI Rewrite"))
-map({ "n", "x", "v" }, "<leader>ai", ":'<,'>AIImplement<cr>", opts("AI Implement"))
-map({ "n", "x", "v" }, "<leader>ap", ":'<,'>AIPrepend<cr>", opts("AI Prepend"))
-map({ "n", "x", "v" }, "<leader>aa", ":'<,'>AIAppend<cr>", opts("AI Append"))
 
 -- NOTE : remove keymap
 unmap("n", "<leader>uC")
