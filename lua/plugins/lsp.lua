@@ -134,9 +134,19 @@ return {
     },
   },
 
+  -- NOTE : lsp for editing kmonad config
   {
     "kmonad/kmonad-vim",
     lazy = false,
     event = "VeryLazy",
+  },
+
+  {
+    "lervag/vimtex",
+    lazy = false,
+    event = "VeryLazy",
+    init = function()
+      vim.g.vimtex_view_method = "zathura"
+    end,
   },
 }

@@ -27,3 +27,7 @@ g.lazyvim_prettier_needs_config = false
 g.autoformat = false
 
 vim.g.lazyvim_picker = "fzf"
+
+-- change default spell checker to id
+vim.opt.spell = true
+vim.opt.spelllang = { "id" }
