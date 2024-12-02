@@ -28,6 +28,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.go", ft = "go" },
     { import = "lazyvim.plugins.extras.lang.git" },
     { import = "lazyvim.plugins.extras.lang.sql" },
+    { import = "lazyvim.plugins.extras.lang.php" },
 
     -- NOTE: UI
     { import = "lazyvim.plugins.extras.ui.dashboard-nvim" },
@@ -109,3 +110,5 @@ require("lazy").setup({
 
 require("config.highlight").setup()
 require("config.options")
+require("globals")
+require("ui")

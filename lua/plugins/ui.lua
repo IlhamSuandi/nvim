@@ -115,17 +115,17 @@ return {
     end,
   },
 
-  -- NOTE : twilight for dimming
-  {
-    "folke/twilight.nvim",
-    event = "VeryLazy",
-    keys = {
-      { "<leader>zt", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
-    },
-    config = function()
-      require("config.twilight")
-    end,
-  },
+  -- -- NOTE : twilight for dimming
+  -- {
+  --   "folke/twilight.nvim",
+  --   event = "VeryLazy",
+  --   keys = {
+  --     { "<leader>zt", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
+  --   },
+  --   config = function()
+  --     require("config.twilight")
+  --   end,
+  -- },
 
   -- NOTE : zen mode
   {
@@ -185,15 +185,15 @@ return {
   --   event = "VeryLazy",
   -- },
   --
-  {
-    "nvchad/volt",
-    lazy = true,
-    event = "VeryLazy",
-  },
-
-  {
-    "nvchad/minty",
-    event = "VeryLazy",
-    cmd = { "Shades", "Huefy" },
-  },
+  -- {
+  --   "nvchad/volt",
+  --   lazy = true,
+  --   event = "VeryLazy",
+  -- },
+  --
+  -- {
+  --   "nvchad/minty",
+  --   event = "VeryLazy",
+  --   cmd = { "Shades", "Huefy" },
+  -- },
 }
