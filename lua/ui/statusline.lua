@@ -28,7 +28,7 @@ local stl_order = {
   "mod",
   "ro",
   "sep",
-  -- "vim_mode",
+  "vim_mode",
   "venv",
   "sep",
   "diag",
