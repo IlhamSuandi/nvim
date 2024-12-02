@@ -110,3 +110,5 @@ require("lazy").setup({
 
 require("config.highlight").setup()
 require("config.options")
+require("globals")
+require("ui")
