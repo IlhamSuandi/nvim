@@ -419,18 +419,6 @@ return {
   },
 
   {
-    "otavioschwanck/arrow.nvim",
-    dependencies = {
-      { "nvim-tree/nvim-web-devicons" },
-    },
-    lazy = false,
-    opts = {
-      show_icons = true,
-      leader_key = '"', -- Recommended to be a single key
-      buffer_leader_key = "M", -- Per Buffer Mappings
-    },
-  },
-  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
@@ -481,6 +469,7 @@ return {
     },
   },
 
+  -- NOTE: fzf-lua for fuzzy search
   {
     "ibhagwan/fzf-lua",
     opts = {
@@ -490,7 +479,15 @@ return {
     },
   },
 
+  -- NOTE: to faster load heavy files
   {
     "pteroctopus/faster.nvim",
+  },
+
+  -- NOTE: better % functionality
+  {
+    "andymass/vim-matchup",
+    lazy = false,
+    event = "VeryLazy",
   },
 }
