@@ -116,6 +116,32 @@ local M = {
       })
     end,
   },
+
+  -- NOTE : nightfox collections
+  {
+    "EdenEast/nightfox.nvim",
+    name = "nightfox",
+    lazy = true,
+    config = function()
+      require("config.themes.nightfox")
+    end,
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    name = "duskfox",
+    lazy = true,
+    config = function()
+      require("config.themes.nightfox")
+    end,
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    name = "nordfox",
+    lazy = true,
+    config = function()
+      require("config.themes.nightfox")
+    end,
+  },
 }
 
 Themes = {}
