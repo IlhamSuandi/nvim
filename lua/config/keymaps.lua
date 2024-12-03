@@ -19,6 +19,7 @@ map("n", "cie", "ggVGc", { desc = "everything change everything" })
 map("n", "die", "ggVGd", { desc = "everything delete everything" })
 map("n", "<Right>", "20zl", { desc = "scroll line to the right" })
 map("n", "<Left>", "20zh", { desc = "scroll line to the left" })
+map("n", "<ESC>", ":nohlsearch<cr>", opts("no highlight search"))
 
 -- NOTE : buffers
 unmap("n", "<S-h>")
