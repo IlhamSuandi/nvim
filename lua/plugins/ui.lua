@@ -159,22 +159,20 @@ return {
   },
 
   {
-    "nvimdev/dashboard-nvim",
+    "folke/snacks.nvim",
     opts = function(_, opts)
-      table.remove(opts.config.center, 6)
-      table.insert(opts.config.center, 6, {
-        action = function()
-          require("persistence").load()
-          vim.cmd("ScopeLoadState") -- Load the scope state after initialization
-        end,
-        desc = " Restore Session",
-        icon = " ",
-        key = "s",
+      table.remove(opts.dashboard.preset.keys, 6)
+      table.insert(opts.dashboard.preset.keys, 6, {
+        {
+          icon = " ",
+          key = "s",
+          desc = "Restore Session",
+          action = function()
+            require("persistence").load()
+            vim.cmd("ScopeLoadState") -- Load the scope state after initialization
+          end,
+        },
       })
-      for _, button in ipairs(opts.config.center) do
-        button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-        button.key_format = "  %s"
-      end
     end,
   },
 
