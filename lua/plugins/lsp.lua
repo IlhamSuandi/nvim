@@ -133,10 +133,4 @@ return {
       end,
     },
   },
-
-  {
-    "kmonad/kmonad-vim",
-    lazy = false,
-    event = "VeryLazy",
-  },
 }
