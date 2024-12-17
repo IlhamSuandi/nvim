@@ -56,14 +56,6 @@ map("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<cr>", opts("lspsaga s
 unmap("n", "<leader>uC")
 map("n", "<leader>uC", "<cmd>Themery<cr>", opts("Themery Change Theme"))
 
--- NOTE : obsidian keymap
-map("n", "<leader>Of", "<cmd>ObsidianQuickSwitch<cr>", opts("Obsidian Quick Switch"))
-map("n", "<leader>Ot", "<cmd>ObsidianTags<cr>", opts("Obsidian Tags"))
-map("n", "<leader>Ow", "<cmd>ObsidianWorkspace<cr>", opts("Obsidian Change Workspace"))
-map("n", "<leader>Occ", "<cmd>ObsidianToday<cr>", opts("Obsidian Create Today Note"))
-map("n", "<leader>Oct", "<cmd>ObsidianTomorrow<cr>", opts("Obsidian Create Tomorrow Note"))
-map("n", "<leader>Ocy", "<cmd>ObsidianYesterday<cr>", opts("Obsidian Create Yesterday Note"))
-
 -- NOTE : keymap for conflict
 map("n", "<leader>gxo", "<Plug>(git-conflict-ours)", opts("accept ours"))
 map("n", "<leader>gxt", "<Plug>(git-conflict-theirs)", opts("accept theirs"))
