@@ -21,9 +21,13 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 wo.foldmethod = "manual"
 
 -- NOTE : use prettier config from workspace instead of default
-g.lazyvim_prettier_needs_config = false
+g.lazyvim_prettier_needs_config = true
 
 -- NOTE: remove auto Lazy auto format
 g.autoformat = false
 
-vim.g.lazyvim_picker = "fzf"
+g.lazyvim_picker = "fzf"
+g.snacks_animate = false
+
+-- g.matchup_matchparen_pumvisible = 0
+vim.diagnostic.config({ virtual_text = false })
