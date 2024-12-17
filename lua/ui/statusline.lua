@@ -122,8 +122,8 @@ local function get_path_info(root, fname, icon_tbl)
     repo_info = table.concat({
       icon_tbl["branch"],
       " ",
-      remote,
-      ":",
+      -- remote,
+      -- ":",
       branch,
       "  ",
       -- icon_tbl["file"],
@@ -138,7 +138,6 @@ local function get_path_info(root, fname, icon_tbl)
     repo_info,
     dir_path,
     file_icon_name,
-    tmux,
   })
 end
 
