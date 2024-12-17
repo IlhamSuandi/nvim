@@ -6,28 +6,26 @@ return {
     opts = {
       spec = {
         { "<leader>n", group = "notifications" },
-        -- { "<leader>a", group = "AI" },
         { "<leader>z", group = "zen mode" },
-        { "<leader>Oc", group = "Create" },
         { "<leader>gx", group = "Git Conflicts" },
-        { "<leader>uS", group = "Screenkey Enable" },
+        { "<leader>h", group = "Harpoon" },
       },
     },
   },
 
   -- NOTE : mini.ai
-  {
-    "echasnovski/mini.ai",
-    event = "VeryLazy",
-    config = function()
-      require("config.mini-ai")
-    end,
-  },
+  -- {
+  --   "echasnovski/mini.ai",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("config.mini-ai")
+  --   end,
+  -- },
 
   -- NOTE : neocord for discord
   {
     "IogaMaster/neocord",
-    lazy = false,
+    lazy = true,
     event = "VeryLazy",
     config = function()
       require("config.discord")
@@ -38,11 +36,6 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     lazy = false,
-    event = "VeryLazy",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter", -- optional
-      "nvim-tree/nvim-web-devicons", -- optional
-    },
     opts = {
       lightbulb = {
         enable = false,
@@ -50,6 +43,7 @@ return {
       symbol_in_winbar = {
         enable = false,
         show_file = false,
+        hide_keyword = true,
       },
       outline = {
         keys = {
@@ -61,17 +55,6 @@ return {
     config = function(_, opts)
       require("lspsaga").setup(opts)
     end,
-  },
-
-  -- NOTE : markdown preview
-  {
-    "MeanderingProgrammer/markdown.nvim",
-    main = "render-markdown",
-    name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
-    opts = {
-      require("config.markdown-preview"),
-    },
-    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
   },
 
   -- NOTE : leetcode things
@@ -141,48 +124,37 @@ return {
     },
   },
 
-  -- NOTE : markdown preview
-  {
-    "iamcco/markdown-preview.nvim",
-    ft = { "markdown" },
-    build = "cd app && yarn install",
-    config = function()
-      vim.g.mkdp_auto_start = 1
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-  },
-
   -- NOTE : tmux integration
-  {
-    "christoomey/vim-tmux-navigator",
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateDown",
-      "TmuxNavigateUp",
-      "TmuxNavigateRight",
-      "TmuxNavigatePrevious",
-    },
-    keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-    },
-  },
+  -- {
+  --   "christoomey/vim-tmux-navigator",
+  --   cmd = {
+  --     "TmuxNavigateLeft",
+  --     "TmuxNavigateDown",
+  --     "TmuxNavigateUp",
+  --     "TmuxNavigateRight",
+  --     "TmuxNavigatePrevious",
+  --   },
+  --   keys = {
+  --     { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+  --     { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+  --     { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+  --     { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+  --     { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+  --   },
+  -- },
 
   -- NOTE : neotest for testing
-  {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-neotest/neotest-jest",
-      "nvim-neotest/neotest-go",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      require("config.neotest")
-    end,
-  },
+  -- {
+  --   "nvim-neotest/neotest",
+  --   dependencies = {
+  --     "nvim-neotest/neotest-jest",
+  --     "nvim-neotest/neotest-go",
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  --   config = function()
+  --     require("config.neotest")
+  --   end,
+  -- },
 
   -- NOTE : obsidian for note taking
   -- {
@@ -253,24 +225,24 @@ return {
   },
 
   -- NOTE : tailwind tool
-  {
-    "luckasRanarison/tailwind-tools.nvim",
-    ft = { "html", "css", "javascript", "typescript", "vue" },
-    lazy = true,
-    name = "tailwind-tools",
-    build = ":UpdateRemotePlugins",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim", -- optional
-      "neovim/nvim-lspconfig", -- optional
-    },
-    opts = {
-      document_color = {
-        inline_symbol = "󱓻 ", -- only used in inline mode
-        debounce = 100, -- in milliseconds, only applied in insert mode
-      },
-    },
-  },
+  -- {
+  --   "luckasRanarison/tailwind-tools.nvim",
+  --   ft = { "html", "css", "javascript", "typescript", "vue" },
+  --   lazy = true,
+  --   name = "tailwind-tools",
+  --   build = ":UpdateRemotePlugins",
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "nvim-telescope/telescope.nvim", -- optional
+  --     "neovim/nvim-lspconfig", -- optional
+  --   },
+  --   opts = {
+  --     document_color = {
+  --       inline_symbol = "󱓻 ", -- only used in inline mode
+  --       debounce = 100, -- in milliseconds, only applied in insert mode
+  --     },
+  --   },
+  -- },
 
   {
     "folke/flash.nvim",
@@ -329,57 +301,6 @@ return {
     end,
   },
 
-  {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = false,
-    version = false, -- set this if you want to always pull the latest change
-    opts = {
-      provider = "gemini", -- You can then change this provider here
-      gemini = { -- see https://ai.google.dev/api/generate-content#request-body_1
-        generationConfig = {
-          stopSequences = { "test" },
-        },
-      },
-    },
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    build = "make",
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      --- The below dependencies are optional,
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      {
-        -- support for image pasting
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          -- recommended settings
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            -- required for Windows users
-            use_absolute_path = true,
-          },
-        },
-      },
-      {
-        -- Make sure to set this up properly if you have lazy=true
-        "MeanderingProgrammer/render-markdown.nvim",
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
-    },
-  },
-
   -- NOTE: fzf-lua for fuzzy search
   {
     "ibhagwan/fzf-lua",
@@ -390,26 +311,21 @@ return {
     },
   },
 
-  -- NOTE: to faster load heavy files
-  {
-    "pteroctopus/faster.nvim",
-  },
-
   -- NOTE: better % functionality
-  {
-    "andymass/vim-matchup",
-    lazy = false,
-    event = "VeryLazy",
-    config = function()
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end,
-  },
+  -- {
+  --   "andymass/vim-matchup",
+  --   lazy = false,
+  --   event = "VeryLazy",
+  --   config = function()
+  --     vim.g.matchup_matchparen_offscreen = { method = "popup" }
+  --   end,
+  -- },
 
   {
     "gbprod/yanky.nvim",
     recommended = true,
     desc = "Better Yank/Paste",
-    event = "LazyFile",
+    event = "VeryLazy",
     opts = {
       highlight = { timer = 150 },
     },
@@ -445,5 +361,55 @@ return {
       { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put After Applying a Filter" },
       { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put Before Applying a Filter" },
     },
+  },
+
+  {
+    "karb94/neoscroll.nvim",
+    lazy = false,
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    opts = {
+      menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+      },
+      settings = {
+        save_on_toggle = true,
+      },
+    },
+    keys = function()
+      local keys = {
+        {
+          "<leader>ha",
+          function()
+            require("harpoon"):list():add()
+          end,
+          desc = "Harpoon File",
+        },
+        {
+          "<leader>hh",
+          function()
+            local harpoon = require("harpoon")
+            harpoon.ui:toggle_quick_menu(harpoon:list())
+          end,
+          desc = "Harpoon Quick Menu",
+        },
+      }
+
+      for i = 1, 5 do
+        table.insert(keys, {
+          "<leader>h" .. i,
+          function()
+            require("harpoon"):list():select(i)
+          end,
+          desc = "Harpoon to File " .. i,
+        })
+      end
+      return keys
+    end,
   },
 }
