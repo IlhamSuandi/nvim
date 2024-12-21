@@ -8,13 +8,14 @@ local themes = {
   rasmus = "rasmus",
   onedarkpro = "onedarkpro",
   everforest = "everforest",
+  nightfox = "nightfox",
 }
 
 return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = themes.kanagawa,
+      colorscheme = themes.nightfox,
     },
   },
 
