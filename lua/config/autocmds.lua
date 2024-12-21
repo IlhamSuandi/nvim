@@ -16,20 +16,22 @@ vim.cmd([[
   augroup END
 ]])
 
--- Autocommand that runs before quitting Neovim
+-- Autocommand to save the scope state when exiting Neovim
 vim.api.nvim_create_autocmd("QuitPre", {
   callback = function()
-    vim.cmd("ScopeSaveState")
+    -- vim.notify "Saving session..."
+    vim.cmd([[ScopeSaveState]]) -- Scope.nvim saving
   end,
   desc = "Run command before quitting Neovim",
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-  pattern = "*", -- Trigger when all plugins are fully loaded
+vim.api.nvim_create_autocmd("User", {
+  group = vim.api.nvim_create_augroup("PersistenceLoad", { clear = true }),
+  pattern = "PersistenceLoadPost",
   callback = function()
-    vim.cmd("ScopeLoadState") -- Load the scope state after initialization
+    vim.cmd("ScopeLoadState") -- Replace with any action you want after persistence load
   end,
-  desc = "Run command after all plugins are loaded",
+  desc = "Load scope state after persistence restores a session",
 })
 
 vim.api.nvim_create_autocmd(
