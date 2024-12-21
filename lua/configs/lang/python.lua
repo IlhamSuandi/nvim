@@ -1,3 +1,5 @@
+M = {}
+
 M.setup = function(bufnr)
   vim.keymap.set("n", "<leader>co", function()
     vim.lsp.buf.code_action {
@@ -9,3 +11,5 @@ M.setup = function(bufnr)
     }
   end, { buffer = bufnr, desc = "Organize imports" })
 end
+
+return M
