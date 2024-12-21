@@ -48,6 +48,16 @@ local ooo = function(client, bufnr)
   vim.keymap.del("n", "<leader>wa", { buffer = bufnr })
   vim.keymap.del("n", "<leader>wl", { buffer = bufnr })
   vim.keymap.del("n", "<leader>wr", { buffer = bufnr })
+
+  -- typescript lang
+  if client.name == "vtsls" then
+    require("configs.lang.typescript").setup(bufnr)
+  end
+
+  -- python lang
+  if client.name == "ruff" or client.name == "ruff_lsp" then
+    require("configs.lang.python").setup(bufnr)
+  end
 end
 
 for _, lsp in ipairs(servers) do
