@@ -81,6 +81,11 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      fuzzy = {
+        prebuilt_binaries = {
+          force_version = "v0.8.0",
+        },
+      },
       completion = {
         list = {
           selection = "manual",
@@ -198,5 +203,5 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     lazy = false,
-  }
+  },
 }
