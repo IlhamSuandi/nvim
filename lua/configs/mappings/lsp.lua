@@ -22,21 +22,3 @@ Keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", Keymap_opts "lspsaga hover doc")
 Keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", Keymap_opts "lspsaga jump to next diagnostic")
 Keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", Keymap_opts "lspsaga jump to prev diagnostic")
 Keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<cr>", Keymap_opts "lspsaga show line diagnostics")
-Keymap("n", "<leader>co", function()
-  vim.lsp.buf.code_action {
-    apply = true,
-    context = {
-      only = { "source.organizeImports" },
-      diagnostics = {},
-    },
-  }
-end, Keymap_opts "organize imports")
-Keymap("n", "<leader>cM", function()
-  vim.lsp.buf.code_action {
-    apply = true,
-    context = {
-      only = { "source.addMissingImports" },
-      diagnostics = {},
-    },
-  }
-end, Keymap_opts "add missing imports")
