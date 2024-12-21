@@ -15,6 +15,7 @@ return {
         { "<leader>s", group = "Search" },
         { "<leader>sn", group = "Search Notifications" },
         { "<leader>h", group = "Harpoon" },
+        { "<leader>d", group = "Debug" },
       },
     }
   end,
