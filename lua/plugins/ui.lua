@@ -9,13 +9,15 @@ local themes = {
   onedarkpro = "onedarkpro",
   everforest = "everforest",
   nightfox = "nightfox",
+  nordfox = "nordfox",
+  duskfox = "duskfox",
 }
 
 return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = themes.nightfox,
+      colorscheme = themes.nordfox,
     },
   },
 
@@ -116,18 +118,6 @@ return {
     end,
   },
 
-  -- -- NOTE : twilight for dimming
-  -- {
-  --   "folke/twilight.nvim",
-  --   event = "VeryLazy",
-  --   keys = {
-  --     { "<leader>zt", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
-  --   },
-  --   config = function()
-  --     require("config.twilight")
-  --   end,
-  -- },
-
   -- NOTE : zen mode
   {
     "folke/zen-mode.nvim",
@@ -156,24 +146,6 @@ return {
     event = "VeryLazy",
     opts = function()
       return require("config.lualine")
-    end,
-  },
-
-  {
-    "folke/snacks.nvim",
-    opts = function(_, opts)
-      table.remove(opts.dashboard.preset.keys, 6)
-      table.insert(opts.dashboard.preset.keys, 6, {
-        {
-          icon = " ",
-          key = "s",
-          desc = "Restore Session",
-          action = function()
-            require("persistence").load()
-            vim.cmd("ScopeLoadState") -- Load the scope state after initialization
-          end,
-        },
-      })
     end,
   },
 
