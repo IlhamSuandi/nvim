@@ -17,6 +17,7 @@ return {
         { "<leader>d", group = "Debug" },
         { "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
         { "<leader>s", group = "search" },
+        { "<leader>sn", group = "notifications" },
       },
     }
   end,
