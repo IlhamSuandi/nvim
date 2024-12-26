@@ -57,7 +57,11 @@ Keymap("n", "die", "ggVGd", Keymap_opts "everything visual everything")
 
 -- nvimtree
 Keymap("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", Keymap_opts "nvimtree toggle window")
-Keymap("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", Keymap_opts "nvimtree focus window")
+
+-- NOTE: expand/collapse
+Keymap("n", "<leader>ee", "<cmd>TSJToggle<cr>", Keymap_opts "expand toggle")
+Keymap("n", "<leader>es", "<cmd>TSJSplit<cr>", Keymap_opts "expand split")
+Keymap("n", "<leader>ej", "<cmd>TSJJoin<cr>", Keymap_opts "expand join")
 
 -- save file
 Keymap("n", "<C-s>", "<cmd>w<CR>", Keymap_opts "Save File")
@@ -65,13 +69,13 @@ Keymap("n", "L", "<cmd>cnext<CR>", Keymap_opts "Quickfix List Next")
 Keymap("n", "H", "<cmd>cprevious<CR>", Keymap_opts "Quickfix List Previous")
 
 -- NOTE: tab related
-Keymap("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
--- Keymap("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
--- Keymap("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-Keymap("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
-Keymap("n", "<leader><tab>l", "<cmd>tabnext<cr>", { desc = "Next Tab" })
-Keymap("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-Keymap("n", "<leader><tab>h", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+Keymap("n", "<tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
+-- Keymap("n", "<tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
+-- Keymap("n", "<tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+Keymap("n", "<tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+Keymap("n", "<tab>l", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+Keymap("n", "<tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+Keymap("n", "<tab>h", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- NOTE: window related
 Keymap("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })
