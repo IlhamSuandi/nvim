@@ -7,12 +7,24 @@ return {
     "stevearc/dressing.nvim",
   },
   config = function()
-    require "config.dap"
+    -- require "configs.dap.flutter"
     require("flutter-tools").setup {
-      debugger = {
-        enabled = true,
-        run_via_dap = true,
-        exception_breakpoints = {},
+      -- debugger = {
+      --   enabled = false,
+      --   run_via_dap = true,
+      --   exception_breakpoints = {},
+      -- },
+      lsp = {
+        settings = {
+          showtodos = true,
+          completefunctioncalls = true,
+          analysisexcludedfolders = {
+            vim.fn.expand "$Home/.pub-cache",
+          },
+          renamefileswithclasses = "prompt",
+          updateimportsonrename = true,
+          enablesnippets = true,
+        },
       },
     }
   end,
