@@ -27,7 +27,7 @@ M.setup = function(bufnr)
         diagnostics = {},
       },
     }
-  end, { buffer = bufnr, desc = "Add missing imports" })
+  end, { buffer = bufnr, desc = "Remove unused imports" })
 end
 
 return M
