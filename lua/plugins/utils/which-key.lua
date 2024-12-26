@@ -13,9 +13,10 @@ return {
         { "<leader>u", group = "UI" },
         { "<leader>q", group = "Session" },
         { "<leader>s", group = "Search" },
-        { "<leader>sn", group = "Search Notifications" },
         { "<leader>h", group = "Harpoon" },
         { "<leader>d", group = "Debug" },
+        { "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
+        { "<leader>s", group = "search" },
       },
     }
   end,

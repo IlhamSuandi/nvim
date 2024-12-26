@@ -22,6 +22,7 @@ require("lazy").setup({
     import = "nvchad.plugins",
   },
 
+  { import = "plugins" },
   { import = "plugins.ui" },
   { import = "plugins.lsp" },
   { import = "plugins.utils" },

@@ -1,6 +1,7 @@
 -- Please read that file to know all available options :(
 
 ---@type ChadrcConfig
+---@class ChadrcConfig
 local M = {}
 
 M.base46 = {
@@ -28,6 +29,7 @@ M.base46 = {
     ["@lsp.type.comment"] = { fg = "#8b9199", bg = "none", italic = true },
     ["@comment"] = { fg = "#8b9199", bg = "none", italic = true },
     ["TelescopeSelection"] = { bg = "#303446", fg = "#eff1f5" },
+    ["NonText"] = { fg = "#8b9199", bg = "none" },
   },
 }
 
@@ -86,6 +88,10 @@ M.colorify = {
   mode = "virtual", -- fg, bg, virtual
   virt_text = "󱓻 ",
   highlight = { hex = true, lspvars = true },
+}
+
+M.nvdash = {
+  load_on_startup = false,
 }
 
 return M
