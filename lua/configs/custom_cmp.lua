@@ -46,12 +46,12 @@ local options = {
   },
 
   sources = {
-    { name = "nvim_lsp", priority = 1 },
-    { name = "emmet_ls", priority = 2 },
-    { name = "luasnip", priority = 3 },
-    { name = "buffer", priority = 4 },
+    { name = "buffer", priority = 1 },
+    { name = "luasnip", priority = 2 },
+    { name = "nvim_lsp", priority = 3 },
+    { name = "path", priority = 4 },
     { name = "nvim_lua", priority = 5 },
-    { name = "path", priority = 6 },
+    { name = "emmet-ls", priority = -999 },
     { name = "supermaven", priority = 7 },
   },
 }
@@ -96,4 +96,5 @@ cmp.setup.cmdline(":", {
   }),
 })
 
+vim.diagnostic.config { virtual_text = false }
 return vim.tbl_deep_extend("force", options, require "nvchad.cmp")
