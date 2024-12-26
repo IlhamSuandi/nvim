@@ -39,10 +39,12 @@ autocmd("User", {
   desc = "Load scope state after persistence restores a session",
 })
 
-vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
-  callback = function()
-    vim.schedule(function()
-      pcall(nvim_bufferline)
-    end)
-  end,
-})
+-- NOTE: auto load session
+-- autocmd("VimEnter", {
+--   pattern = "*", -- Trigger when all plugins are fully loaded
+--   callback = function()
+--     require("persistence").load()
+--   vim.cmd "ScopeLoadState" -- Load the scope state after initialization
+--   end,
+-- desc = "Run command after all plugins are loaded",
+-- })
