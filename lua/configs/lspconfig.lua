@@ -35,6 +35,9 @@ local servers = {
   -- NOTE: shell
   -- "shellcheck",
   -- "shfmt",
+
+  -- NOTE: flutter
+  "dartls",
 }
 
 local nvlsp = require "nvchad.configs.lspconfig"
@@ -42,6 +45,7 @@ local nvlsp = require "nvchad.configs.lspconfig"
 local ooo = function(client, bufnr)
   nvlsp.on_attach(client, bufnr)
   -- delete default keymap
+  -- vim.keymap.del("x", "<space>", { buffer = bufnr })
   vim.keymap.del("n", "<leader>ca", { buffer = bufnr })
   vim.keymap.del("n", "<leader>ra", { buffer = bufnr })
   vim.keymap.del("n", "<leader>D", { buffer = bufnr })
@@ -57,6 +61,23 @@ local ooo = function(client, bufnr)
   -- python lang
   if client.name == "ruff" or client.name == "ruff_lsp" then
     require("configs.lang.python").setup(bufnr)
+  end
+
+  -- dart lang
+  -- stylua: ignore
+  if client.name == "dartls" then
+    vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", {  desc = "Go to definition", noremap = true })
+    -- vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", {  desc = "Show Hover", noremap = true })
+    -- vim.keymap.set({ "n", "x" }, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", {   desc = "Code action", noremap = true })
+    vim.keymap.set("n", "<leader>co", function()
+      vim.lsp.buf.code_action {
+        apply = true,
+        context = {
+          only = { "source.organizeImports" },
+          diagnostics = {},
+        },
+      }
+    end, {  desc = "Organize imports" })
   end
 end
 
