@@ -53,7 +53,7 @@ M.ui = {
       "mode",
       "file",
       "git",
-      "noice_recording",
+      -- "noice_recording",
       "lsp_msg",
       "%=",
       "diagnostics",
@@ -62,15 +62,15 @@ M.ui = {
       "cursor",
     },
     modules = {
-      noice_recording = function()
-        local noice = require "noice"
-        local recording_status = noice.api.statusline.mode.get()
-        if noice.api.statusline.mode.has() and recording_status:find "recording" then
-          return "%#ErrorMsg# " .. recording_status .. " "
-        else
-          return ""
-        end
-      end,
+      -- noice_recording = function()
+      --   local noice = require "noice"
+      --   local recording_status = noice.api.statusline.mode.get()
+      --   if noice.api.statusline.mode.has() and recording_status:find "recording" then
+      --     return "%#ErrorMsg# " .. recording_status .. " "
+      --   else
+      --     return ""
+      --   end
+      -- end,
     },
   },
 

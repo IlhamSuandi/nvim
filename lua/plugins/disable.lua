@@ -9,4 +9,5 @@ end
 
 return disable {
   "3rd/image.nvim",
+  "folke/noice.nvim",
 }
