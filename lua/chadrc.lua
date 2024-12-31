@@ -50,6 +50,7 @@ M.ui = {
     -- round and block will work for minimal theme only
     separator_style = "round",
     order = {
+      "pad",
       "mode",
       "file",
       "git",
@@ -62,6 +63,7 @@ M.ui = {
       "cursor",
     },
     modules = {
+      pad = " ",
       -- noice_recording = function()
       --   local noice = require "noice"
       --   local recording_status = noice.api.statusline.mode.get()
