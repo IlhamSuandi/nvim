@@ -43,12 +43,6 @@ Keymap("v", "<a-j>", ":m'>+<CR>gvgv", Keymap_opts "move line down")
 
 Keymap("n", "<leader>l", "<cmd>Lazy<cr>", Keymap_opts "Lazy")
 
--- NOTE: switch window
-Keymap("n", "<C-h>", "<C-w>h", Keymap_opts "switch window left")
-Keymap("n", "<C-l>", "<C-w>l", Keymap_opts "switch window right")
-Keymap("n", "<C-j>", "<C-w>j", Keymap_opts "switch window down")
-Keymap("n", "<C-k>", "<C-w>k", Keymap_opts "switch window up")
-
 -- NOTE: motion for everything
 Keymap("n", "vie", "ggVG", Keymap_opts "everything visual everything")
 Keymap("n", "yie", "ggVGy", Keymap_opts "everything visual everything")
@@ -82,3 +76,14 @@ Keymap("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })
 Keymap("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 Keymap("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 Keymap("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
+
+-- NOTE: horizontal scroll
+Keymap("n", "<Right>", "10zl", { desc = "Scroll Right", remap = true })
+Keymap("n", "<Left>", "10zh", { desc = "Scroll Left", remap = true })
+
+Keymap("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+Keymap("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+Keymap("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+Keymap("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+
+Keymap("n", "-", "<cmd>Oil<cr>", { desc = "Open Tree on Buffer" })
