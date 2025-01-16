@@ -18,6 +18,18 @@ Keymap(
   "<cmd>Lspsaga show_workspace_diagnostics<cr>",
   Keymap_opts "lspsaga show workspace diagnostics"
 )
-Keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", Keymap_opts "lspsaga jump to next diagnostic")
-Keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", Keymap_opts "lspsaga jump to prev diagnostic")
 Keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<cr>", Keymap_opts "lspsaga show line diagnostics")
+
+Keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", Keymap_opts "lspsaga jump to prev diagnostic")
+Keymap("n", "[e", function()
+  require("lspsaga.diagnostic"):goto_prev { severity = vim.diagnostic.severity.ERROR }
+end, { desc = "Goto Prev Error" })
+Keymap("n", "]e", function()
+  require("lspsaga.diagnostic"):goto_next { severity = vim.diagnostic.severity.ERROR }
+end, { desc = "Goto Next Error" })
+Keymap("n", "[w", function()
+  require("lspsaga.diagnostic"):goto_prev { severity = vim.diagnostic.severity.WARN }
+end, { desc = "Goto Prev Warn" })
+Keymap("n", "]w", function()
+  require("lspsaga.diagnostic"):goto_next { severity = vim.diagnostic.severity.WARN }
+end, { desc = "Goto Next Warn" })
