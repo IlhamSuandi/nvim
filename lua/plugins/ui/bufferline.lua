@@ -15,7 +15,7 @@ return {
   opts = {
     options = {
       indicator_icon = "",
-      separator_style ={"", ""},
+      separator_style = { "", "" },
         -- stylua: ignore
         close_command = function(n) Snacks.bufdelete(n) end,
         -- stylua: ignore
