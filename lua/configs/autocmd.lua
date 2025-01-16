@@ -39,6 +39,11 @@ autocmd("User", {
   desc = "Load scope state after persistence restores a session",
 })
 
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = ".env.*",
+  command = "set filetype=sh",
+})
+
 -- NOTE: auto load session
 -- autocmd("VimEnter", {
 --   pattern = "*", -- Trigger when all plugins are fully loaded
