@@ -39,9 +39,48 @@ autocmd("User", {
   desc = "Load scope state after persistence restores a session",
 })
 
-autocmd({ "BufRead", "BufNewFile" }, {
+-- Autocmd to set icons for `.env.*` files when a file is read/created
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = ".env.*",
-  command = "set filetype=sh",
+  callback = function()
+    local uv = vim.loop
+    local devicons = require "nvim-web-devicons"
+
+    -- Icon for `.env.*` files
+    local env_icon = {
+      icon = "",
+      color = "#faf743",
+      cterm_color = "185",
+      name = "EnvWildcard",
+    }
+
+    -- Set filetype for `.env.*`
+    vim.bo.filetype = "sh"
+
+    -- Set icons for `.env.*` files in the project
+    -- Get the current working directory
+    local cwd = vim.fn.getcwd()
+
+    -- Read the directory for `.env.*` files
+    local handle = uv.fs_scandir(cwd)
+    if not handle then
+      return
+    end
+
+    while true do
+      local name, type = uv.fs_scandir_next(handle)
+      if not name then
+        break
+      end
+
+      if name:match "^%.env%..+" and type == "file" then
+        -- Apply the icon to each `.env.*` file found
+        devicons.set_icon {
+          [name] = env_icon,
+        }
+      end
+    end
+  end,
 })
 
 -- NOTE: auto load session
