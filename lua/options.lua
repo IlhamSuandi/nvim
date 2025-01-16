@@ -6,3 +6,5 @@ vim.o.relativenumber = true
 vim.diagnostic.config { virtual_text = false }
 
 vim.notify = Snacks.notifier
+
+vim.opt.wrap = false -- Disable line wrap

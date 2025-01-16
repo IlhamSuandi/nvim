@@ -20,6 +20,8 @@ vim.api.nvim_set_hl(0, "@comment", { fg = "#8b9199", bg = "none", italic = true 
 vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = "none" })
 vim.api.nvim_set_hl(0, "GitSignsChange", { bg = "none" })
 vim.api.nvim_set_hl(0, "GitSignsDelete", { bg = "none" })
+vim.api.nvim_set_hl(0, "CurSearch", { bg = "#5c5f77" })
+vim.api.nvim_set_hl(0, "Substitute", { bg = "#5c5f77" })
 
 -- Set transparent background for BufferLine highlights
 -- Loop through all highlight groups and set bg to "none" for BufferLine groups

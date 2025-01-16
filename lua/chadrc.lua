@@ -30,6 +30,7 @@ M.base46 = {
     ["@comment"] = { fg = "#8b9199", bg = "none", italic = true },
     ["TelescopeSelection"] = { bg = "#303446", fg = "#eff1f5" },
     ["NonText"] = { fg = "#8b9199", bg = "none" },
+    ["Search"] = { bg = "#5c5f77", fg = "none" },
   },
 }
 
