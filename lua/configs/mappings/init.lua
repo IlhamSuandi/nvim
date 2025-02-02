@@ -63,13 +63,11 @@ Keymap("n", "L", "<cmd>cnext<CR>", Keymap_opts "Quickfix List Next")
 Keymap("n", "H", "<cmd>cprevious<CR>", Keymap_opts "Quickfix List Previous")
 
 -- NOTE: tab related
-Keymap("n", "<tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
--- Keymap("n", "<tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
--- Keymap("n", "<tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-Keymap("n", "<tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
-Keymap("n", "<tab>l", "<cmd>tabnext<cr>", { desc = "Next Tab" })
-Keymap("n", "<tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-Keymap("n", "<tab>h", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+Keymap("n", "<Tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
+Keymap("n", "<Tab><Tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+Keymap("n", "<Tab>l", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+Keymap("n", "<Tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+Keymap("n", "<Tab>h", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- NOTE: window related
 Keymap("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })
