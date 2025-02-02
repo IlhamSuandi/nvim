@@ -5,6 +5,23 @@ return {
   event = "VimEnter",
   keys = {
     {
+      "<leader>gk",
+      function()
+        require("vgit").hunk_up()
+      end,
+
+      desc = "Go Up Hunk",
+      mode = "n",
+    },
+    {
+      "<leader>gj",
+      function()
+        require("vgit").hunk_down()
+      end,
+      desc = "Go Down Hunk",
+      mode = "n",
+    },
+    {
       "<leader>gs",
       function()
         require("vgit").project_stash_preview()
@@ -38,14 +55,6 @@ return {
     },
   },
   opts = {
-    keymaps = {
-      ["n <C-k>"] = function()
-        require("vgit").hunk_up()
-      end,
-      ["n <C-j>"] = function()
-        require("vgit").hunk_down()
-      end,
-    },
     settings = {
       live_blame = {
         enabled = false,
