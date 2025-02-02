@@ -14,6 +14,9 @@ return {
       --   run_via_dap = true,
       --   exception_breakpoints = {},
       -- },
+      dev_log = {
+        open_cmd = "tabnew",
+      },
       lsp = {
         settings = {
           showtodos = true,
