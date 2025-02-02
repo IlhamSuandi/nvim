@@ -1,4 +1,5 @@
 local cmp = require "cmp"
+local compare = cmp.config.compare
 
 dofile(vim.g.base46_cache .. "cmp")
 
@@ -46,6 +47,7 @@ local options = {
   },
 
   sources = {
+    { name = "jupynium", priority = 1000 },
     { name = "buffer", priority = 1 },
     { name = "luasnip", priority = 2 },
     { name = "nvim_lsp", priority = 3 },
@@ -53,6 +55,16 @@ local options = {
     { name = "nvim_lua", priority = 5 },
     { name = "emmet-ls", priority = -999 },
     { name = "supermaven", priority = 7 },
+    { name = "otter", priority = 7 },
+  },
+
+  sorting = {
+    priority_weight = 1.0,
+    comparators = {
+      compare.score,
+      compare.recently_used,
+      compare.locality,
+    },
   },
 }
 
@@ -94,6 +106,13 @@ cmp.setup.cmdline(":", {
       },
     },
   }),
+})
+
+cmp.setup.filetype({ "sql" }, {
+  sources = {
+    { name = "vim-dadbod-completion" },
+    { name = "buffer" },
+  },
 })
 
 vim.diagnostic.config { virtual_text = false }

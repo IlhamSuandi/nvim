@@ -45,7 +45,6 @@ local nvlsp = require "nvchad.configs.lspconfig"
 local ooo = function(client, bufnr)
   nvlsp.on_attach(client, bufnr)
   -- delete default keymap
-  -- vim.keymap.del("x", "<space>", { buffer = bufnr })
   vim.keymap.del("n", "<leader>ca", { buffer = bufnr })
   vim.keymap.del("n", "<leader>ra", { buffer = bufnr })
   vim.keymap.del("n", "<leader>D", { buffer = bufnr })
@@ -79,6 +78,31 @@ local ooo = function(client, bufnr)
       }
     end, {  desc = "Organize imports" })
   end
+end
+
+local function get_quarto_resource_path()
+  local function strsplit(s, delimiter)
+    local result = {}
+    for match in (s .. delimiter):gmatch("(.-)" .. delimiter) do
+      table.insert(result, match)
+    end
+    return result
+  end
+
+  local f = assert(io.popen("quarto --paths", "r"))
+  local s = assert(f:read "*a")
+  f:close()
+  return strsplit(s, "\n")[2]
+end
+
+local lua_library_files = vim.api.nvim_get_runtime_file("", true)
+local lua_plugin_paths = {}
+local resource_path = get_quarto_resource_path()
+if resource_path == nil then
+  vim.notify_once "quarto not found, lua library files not loaded"
+else
+  table.insert(lua_library_files, resource_path .. "/lua-types")
+  table.insert(lua_plugin_paths, resource_path .. "/lua-plugin/plugin.lua")
 end
 
 for _, lsp in ipairs(servers) do
