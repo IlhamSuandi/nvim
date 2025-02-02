@@ -8,6 +8,6 @@ local function disable(plugins)
 end
 
 return disable {
-  "3rd/image.nvim",
+  -- "3rd/image.nvim",
   "folke/noice.nvim",
 }
