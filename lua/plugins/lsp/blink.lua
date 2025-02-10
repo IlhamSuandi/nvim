@@ -44,10 +44,19 @@ return {
         "buffer",
         "supermaven",
         "dadbod",
+        "jupynium",
       },
       -- You can also extend the default sources
       providers = {
-        dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+        dadbod = {
+          name = "Dadbod",
+          module = "vim_dadbod_completion.blink",
+        },
+        jupynium = {
+          name = "jupynium",
+          async = true,
+          module = "blink.compat.source",
+        },
         supermaven = {
           name = "supermaven",
           score_offset = 100,
