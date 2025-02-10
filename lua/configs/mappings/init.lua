@@ -52,11 +52,6 @@ Keymap("n", "die", "ggVGd", Keymap_opts "everything visual everything")
 -- nvimtree
 Keymap("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", Keymap_opts "nvimtree toggle window")
 
--- NOTE: expand/collapse
-Keymap("n", "<leader>ee", "<cmd>TSJToggle<cr>", Keymap_opts "expand toggle")
-Keymap("n", "<leader>es", "<cmd>TSJSplit<cr>", Keymap_opts "expand split")
-Keymap("n", "<leader>ej", "<cmd>TSJJoin<cr>", Keymap_opts "expand join")
-
 -- save file
 Keymap("n", "<C-s>", "<cmd>w<CR>", Keymap_opts "Save File")
 Keymap("n", "L", "<cmd>cnext<CR>", Keymap_opts "Quickfix List Next")
