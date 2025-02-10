@@ -19,6 +19,9 @@ return {
     },
   },
   config = function(_, opts)
+    vim.diagnostic.config {
+      severity_sort = true,
+    }
     require("lspsaga").setup(opts)
   end,
 }
