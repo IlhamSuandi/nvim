@@ -8,6 +8,11 @@ local function disable(plugins)
 end
 
 return disable {
-  -- "3rd/image.nvim",
+  "3rd/image.nvim",
   "folke/noice.nvim",
+
+  "hkupty/iron.nvim",
+  "kiyoon/jupynium.nvim",
+  "hrsh7th/nvim-cmp",
+  "mfussenegger/nvim-dap",
 }
