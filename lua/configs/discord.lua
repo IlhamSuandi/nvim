@@ -2,7 +2,7 @@
 require("neocord").setup {
   -- General options
   logo = "auto", -- "auto" or url
-  logo_tooltip = "i use vim because i don't know how to exit vim", -- nil or string
+  logo_tooltip = "how to exit vim?", -- nil or string
   main_image = "language", -- "language" or "logo"
   client_id = "1157438221865717891", -- Use your own Discord application client id (not recommended)
   log_level = nil, -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
