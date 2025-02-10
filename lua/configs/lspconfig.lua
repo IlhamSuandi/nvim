@@ -5,7 +5,6 @@ local lspconfig = require "lspconfig"
 
 -- EXAMPLE
 local servers = {
-
   -- NOTE: lua
   "lua_ls",
 
@@ -25,11 +24,11 @@ local servers = {
   "gopls",
 
   -- NOTE: python
-  "pyright",
-  "ruff",
+  -- "pyright",
+  -- "ruff",
 
   -- NOTE: Latex
-  "texlab",
+  -- "texlab",
   -- "tree-sitter-cli",
 
   -- NOTE: shell
@@ -42,7 +41,7 @@ local servers = {
 
 local nvlsp = require "nvchad.configs.lspconfig"
 
-local ooo = function(client, bufnr)
+local on_attach = function(client, bufnr)
   nvlsp.on_attach(client, bufnr)
   -- delete default keymap
   vim.keymap.del("n", "<leader>ca", { buffer = bufnr })
@@ -52,31 +51,29 @@ local ooo = function(client, bufnr)
   vim.keymap.del("n", "<leader>wl", { buffer = bufnr })
   vim.keymap.del("n", "<leader>wr", { buffer = bufnr })
 
+  vim.keymap.set("n", "<leader>co", function()
+    vim.lsp.buf.code_action {
+      apply = true,
+      context = {
+        only = { "source.organizeImports" },
+        diagnostics = {},
+      },
+    }
+  end, { buffer = bufnr, desc = "Organize imports" })
+  vim.keymap.set("n", "<leader>cF", function()
+    vim.lsp.buf.code_action {
+      apply = true,
+      context = {
+        only = { "source.fixAll" },
+        diagnostics = {},
+      },
+    }
+  end, { buffer = bufnr, desc = "Fix all" })
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", noremap = true })
+
   -- typescript lang
   if client.name == "vtsls" then
     require("configs.lang.typescript").setup(bufnr)
-  end
-
-  -- python lang
-  if client.name == "ruff" or client.name == "ruff_lsp" then
-    require("configs.lang.python").setup(bufnr)
-  end
-
-  -- dart lang
-  -- stylua: ignore
-  if client.name == "dartls" then
-    vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", {  desc = "Go to definition", noremap = true })
-    -- vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", {  desc = "Show Hover", noremap = true })
-    -- vim.keymap.set({ "n", "x" }, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", {   desc = "Code action", noremap = true })
-    vim.keymap.set("n", "<leader>co", function()
-      vim.lsp.buf.code_action {
-        apply = true,
-        context = {
-          only = { "source.organizeImports" },
-          diagnostics = {},
-        },
-      }
-    end, {  desc = "Organize imports" })
   end
 end
 
@@ -107,23 +104,27 @@ end
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = ooo,
+    on_attach = on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
   }
+  if lsp == "vtsls" then
+    lspconfig.vtsls.setup {
+      on_attach = on_attach,
+      on_init = nvlsp.on_init,
+      capabilities = nvlsp.capabilities,
+      settings = {
+        typescript = {
+          preferences = {
+            importModuleSpecifier = "non-relative",
+          },
+        },
+        javascript = {
+          preferences = {
+            importModuleSpecifier = "non-relative",
+          },
+        },
+      },
+    }
+  end
 end
-
-lspconfig.vtsls.setup {
-  settings = {
-    typescript = {
-      preferences = {
-        importModuleSpecifier = "non-relative",
-      },
-    },
-    javascript = {
-      preferences = {
-        importModuleSpecifier = "non-relative",
-      },
-    },
-  },
-}
