@@ -65,21 +65,65 @@ M.ui = {
     },
     modules = {
       pad = " ",
-      -- noice_recording = function()
-      --   local noice = require "noice"
-      --   local recording_status = noice.api.statusline.mode.get()
-      --   if noice.api.statusline.mode.has() and recording_status:find "recording" then
-      --     return "%#ErrorMsg# " .. recording_status .. " "
-      --   else
-      --     return ""
-      --   end
-      -- end,
+      file = function()
+        local config = require("nvconfig").ui.statusline
+        local sep_style = config.separator_style
+        local utils = require "nvchad.stl.utils"
+
+        sep_style = (sep_style ~= "round" and sep_style ~= "block") and "block" or sep_style
+
+        local sep_icons = utils.separators
+        local separators = (type(sep_style) == "table" and sep_style) or sep_icons[sep_style]
+
+        local sep_l = separators["left"]
+        local sep_r = "%#St_sep_r#" .. separators["right"] .. " %#ST_EmptySpace#"
+
+        local function gen_block(icon, txt, sep_l_hlgroup, iconHl_group, txt_hl_group)
+          return sep_l_hlgroup .. sep_l .. iconHl_group .. icon .. " " .. txt_hl_group .. " " .. txt .. sep_r
+        end
+
+        local icon = "󰈚"
+
+        local file = vim.fn.expand "%:p" -- Get the full file path
+        local name = vim.fn.fnamemodify(file, ":t") -- Get the file name
+        local path = vim.fn.fnamemodify(file, ":~:h") -- Get the file's directory relative to the home directory
+
+        -- Split the path into components
+        local parts = vim.split(path, "/", { plain = true })
+        local display_path
+
+        if #parts > 2 then
+          -- If more than 2 components, show the first component (root or `~`), `...`, and the last folder
+          display_path = table.concat({
+            parts[1] or "~", -- Root or `~`
+            "..", -- Placeholder for skipped folders
+            parts[#parts], -- Last folder
+          }, "/")
+        elseif #parts == 2 then
+          -- If exactly 2 components, show both (root or `~` and the last folder)
+          display_path = table.concat(parts, "/")
+        else
+          -- If only 1 component, show the root or `~`
+          display_path = parts[1] or "~"
+        end
+
+        local devicons_present, devicons = pcall(require, "nvim-web-devicons")
+
+        if devicons_present then
+          local ft_icon = devicons.get_icon(name)
+          icon = (ft_icon ~= nil and ft_icon) or icon
+        end
+
+        -- Combine the display path with the file name
+        return gen_block(icon, display_path .. "/" .. name, "%#St_file_sep#", "%#St_file_bg#", "%#St_file_txt#")
+        -- return "%#St_file# " .. icon .. " " .. display_path .. "/" .. name .. "%#St_file_sep#"
+      end,
     },
   },
 
   -- lazyload it when there are 1+ buffers
   tabufline = {
-    enabled = false,
+    enabled = true,
     lazyload = false,
     order = { "treeOffset", "buffers", "tabs", "btns" },
     modules = nil,
