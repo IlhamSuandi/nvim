@@ -23,9 +23,6 @@ require "configs.mappings.terminal"
 -- NOTE: lsp related mappings
 require "configs.mappings.lsp"
 
--- NOTE: lsp related mappings
-require "configs.mappings.finder"
-
 -- NOTE: ui related mappings
 require "configs.mappings.ui"
 
