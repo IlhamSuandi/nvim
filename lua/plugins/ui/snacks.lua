@@ -26,6 +26,18 @@ return {
     },
     picker = {
       enabled = true,
+      sources = {
+        explorer = {
+          jump = { close = true },
+          win = {
+            list = {
+              keys = {
+                ["<C-n>"] = "close",
+              },
+            },
+          },
+        },
+      },
     },
   },
     -- stylua: ignore 
