@@ -84,39 +84,40 @@ M.ui = {
 
         local icon = "󰈚"
 
-        local file = vim.fn.expand "%:p" -- Get the full file path
-        local name = vim.fn.fnamemodify(file, ":t") -- Get the file name
-        local path = vim.fn.fnamemodify(file, ":~:h") -- Get the file's directory relative to the home directory
+        -- Get the full file path
+        local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~") -- Get the current working directory
+        local file = vim.fn.expand "%:p" -- Get the full path of the current file
+        local file_name = vim.fn.fnamemodify(file, ":t") -- Extract the file name
+        local rel_path = vim.fn.fnamemodify(file, ":~:h"):gsub("^" .. vim.pesc(cwd), "") -- Path relative to the working directory
 
-        -- Split the path into components
-        local parts = vim.split(path, "/", { plain = true })
+        -- Split the relative path into components
+        local parts = vim.split(rel_path, "/", { plain = true })
+
+        -- Determine the display path
         local display_path
-
         if #parts > 2 then
-          -- If more than 2 components, show the first component (root or `~`), `...`, and the last folder
-          display_path = table.concat({
-            parts[1] or "~", -- Root or `~`
-            "..", -- Placeholder for skipped folders
-            parts[#parts], -- Last folder
-          }, "/")
+          -- More than 2 folders before the file
+          display_path = "~/../" .. parts[#parts] .. "/" .. file_name
         elseif #parts == 2 then
-          -- If exactly 2 components, show both (root or `~` and the last folder)
-          display_path = table.concat(parts, "/")
+          -- Exactly 1 folder before the file
+          display_path = "~/" .. parts[#parts] .. "/" .. file_name
+        elseif #parts == 1 and parts[1] ~= "" then
+          -- Only 1 folder exists
+          display_path = "~/" .. parts[1] .. "/" .. file_name
         else
-          -- If only 1 component, show the root or `~`
-          display_path = parts[1] or "~"
+          -- File is directly in the working directory
+          display_path = "~/" .. file_name
         end
 
+        -- Add devicons for the file type
         local devicons_present, devicons = pcall(require, "nvim-web-devicons")
-
         if devicons_present then
-          local ft_icon = devicons.get_icon(name)
+          local ft_icon = devicons.get_icon(file_name)
           icon = (ft_icon ~= nil and ft_icon) or icon
         end
 
-        -- Combine the display path with the file name
-        return gen_block(icon, display_path .. "/" .. name, "%#St_file_sep#", "%#St_file_bg#", "%#St_file_txt#")
-        -- return "%#St_file# " .. icon .. " " .. display_path .. "/" .. name .. "%#St_file_sep#"
+        -- Combine and return the final string
+        return gen_block(icon, display_path, "%#St_file_sep#", "%#St_file_bg#", "%#St_file_txt#")
       end,
     },
   },
