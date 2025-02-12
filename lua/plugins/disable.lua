@@ -10,9 +10,9 @@ end
 return disable {
   "3rd/image.nvim",
   "folke/noice.nvim",
-
   "hkupty/iron.nvim",
   "kiyoon/jupynium.nvim",
   "hrsh7th/nvim-cmp",
   "mfussenegger/nvim-dap",
+  "nvim-telescope/telescope.nvim",
 }
