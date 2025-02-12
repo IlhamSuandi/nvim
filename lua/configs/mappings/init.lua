@@ -47,7 +47,11 @@ Keymap("n", "cie", "ggVGc", Keymap_opts "everything visual everything")
 Keymap("n", "die", "ggVGd", Keymap_opts "everything visual everything")
 
 -- nvimtree
-Keymap("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", Keymap_opts "nvimtree toggle window")
+-- Keymap("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", Keymap_opts "nvimtree toggle window")
+-- explorer
+Keymap("n", "<C-n>", function()
+  Snacks.explorer()
+end, Keymap_opts "Open Explorer")
 
 -- save file
 Keymap("n", "<C-s>", "<cmd>w<CR>", Keymap_opts "Save File")
