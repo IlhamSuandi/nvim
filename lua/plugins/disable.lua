@@ -15,4 +15,5 @@ return disable {
   "hrsh7th/nvim-cmp",
   "mfussenegger/nvim-dap",
   "nvim-telescope/telescope.nvim",
+  "nvim-tree/nvim-tree.lua",
 }
