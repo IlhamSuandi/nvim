@@ -2,6 +2,7 @@
 return {
   "folke/snacks.nvim",
   priority = 1000,
+  -- tags = "v2.20.0",
   lazy = false,
   opts = {
     bigfile = { enabled = true },
@@ -78,6 +79,7 @@ return {
     { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
     { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
     { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
+    { "<leader>snh", function() Snacks.notifier.show_history() end, desc = "Notifier History" },
 
     -- other
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },

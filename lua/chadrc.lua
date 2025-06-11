@@ -5,7 +5,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "chocolate",
+  theme = "chadtain",
   transparency = true,
 
   hl_override = {
@@ -124,7 +124,7 @@ M.ui = {
 
   -- lazyload it when there are 1+ buffers
   tabufline = {
-    enabled = true,
+    enabled = false,
     lazyload = false,
     order = { "treeOffset", "buffers", "tabs", "btns" },
     modules = nil,

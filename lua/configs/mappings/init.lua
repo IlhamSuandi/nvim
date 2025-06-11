@@ -26,8 +26,12 @@ require "configs.mappings.lsp"
 -- NOTE: ui related mappings
 require "configs.mappings.ui"
 
+-- NOTE: ui related mappings
+require "configs.mappings.git"
+
 Keymap("i", "jk", "<ESC>")
 Keymap("i", "jj", "<ESC>")
+Keymap("i", "Jj", "<ESC>")
 Keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", Keymap_opts "general clear highlights")
 
 -- NOTE: move line
@@ -81,3 +85,9 @@ Keymap("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window
 Keymap("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 Keymap("n", "-", "<cmd>Oil<cr>", { desc = "Open Tree on Buffer" })
+
+Keymap("n", "]c", function()
+  require("treesitter-context").go_to_context(vim.v.count1)
+end, { desc = "Go to context" })
+
+Keymap("n", "<leader>ut", "<cmd>TSContextToggle<cr>", { desc = "Toggle Treesitter Context" })

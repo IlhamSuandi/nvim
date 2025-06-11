@@ -8,12 +8,27 @@ local function disable(plugins)
 end
 
 return disable {
-  "3rd/image.nvim",
-  "folke/noice.nvim",
-  "hkupty/iron.nvim",
-  "kiyoon/jupynium.nvim",
-  "hrsh7th/nvim-cmp",
-  "mfussenegger/nvim-dap",
-  "nvim-telescope/telescope.nvim",
-  "nvim-tree/nvim-tree.lua",
+  "3rd/image.nvim",   -- image viewer
+  "hrsh7th/nvim-cmp", -- completion
+  -- "saghen/blink.cmp", -- completion
+  -- "saghen/blink.compat", -- completion
+  "folke/noice.nvim",              -- notifications
+  "kiyoon/jupynium.nvim",          -- jupyter notebook things
+  "pmizio/typescript-tools.nvim",  -- typescript things
+  "nvim-telescope/telescope.nvim", -- fuzzy finder
+  "nvim-tree/nvim-tree.lua",       -- file explorer
+
+  "IogaMaster/neocord",
+  "karb94/neoscroll.nvim",      -- animation
+  "akinsho/flutter-tools.nvim", -- flutter
+  "MagicDuck/grug-far.nvim",    -- search and replace
+  "ray-x/go.nvim",              -- go
+  "nvim-neotest/nvim-nio",      -- dap dependencies
+  "luarocks/hererocks",         -- luarocks
+  "mistweaverco/kulala.nvim",   -- rest api testing
+  "nvzone/minty",               -- nvchad things
+  "nvzone/volt",                -- nvchad things
+  "neovim/nvim-lspconfig",      -- lsp configs
+  "pmizio/typescript-tools.nvim",
+  "tanvirtin/vgit.nvim",        -- git view
 }

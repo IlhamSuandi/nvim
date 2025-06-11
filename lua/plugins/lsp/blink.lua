@@ -4,6 +4,7 @@ return {
     "rafamadriz/friendly-snippets",
     "supermaven-nvim",
     "saghen/blink.compat",
+    -- "giuxtaposition/blink-cmp-copilot",
   },
   event = "VeryLazy",
   -- use a release tag to download pre-built binaries
@@ -33,6 +34,10 @@ return {
     },
 
     signature = { enabled = true },
+    completion = {
+      -- Show documentation when selecting a completion item
+      documentation = { auto_show = true, auto_show_delay_ms = 200 },
+    },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
@@ -42,6 +47,7 @@ return {
         "path",
         "snippets",
         "buffer",
+        -- "copilot",
         "supermaven",
         "dadbod",
         "jupynium",
@@ -57,11 +63,24 @@ return {
           async = true,
           module = "blink.compat.source",
         },
+        -- copilot = {
+        --   name = "copilot",
+        --   module = "blink-cmp-copilot",
+        --   score_offset = 100,
+        --   async = true,
+        -- },
         supermaven = {
           name = "supermaven",
           score_offset = 100,
           async = true,
           module = "blink.compat.source",
+          transform_items = function(_, items)
+            for _, item in ipairs(items) do
+              item.kind_icon = '⚡'
+              item.kind_name = 'supermaven'
+            end
+            return items
+          end
         },
       },
     },
