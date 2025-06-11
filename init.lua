@@ -39,5 +39,6 @@ vim.schedule(function()
   require "configs.mappings"
 end)
 
+require("configs.lsp")
 require "configs.ui.hightligt"
 require "configs.autocmd"
