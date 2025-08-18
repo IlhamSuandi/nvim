@@ -41,5 +41,9 @@ vim.api.nvim_set_hl(0, "BufferLineBufferVisible", { fg = "#eff1f5", bg = "NONE" 
 vim.api.nvim_set_hl(0, "BufferLineWarningSelected", { bg = "NONE", fg = "#eff1f5", bold = true })
 vim.api.nvim_set_hl(0, "BufferLineErrorSelected", { bg = "NONE", fg = "#eff1f5", bold = true })
 vim.api.nvim_set_hl(0, "NotificationInfo", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "TreesitterContextBottom", {sp = "Grey", italic = true })
+vim.api.nvim_set_hl(0, "TreesitterContextBottom", { sp = "Grey", italic = true })
 vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { sp = "Grey", italic = true })
+
+-- separator
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#eff1f5", bg = "NONE" })   -- Active
+vim.api.nvim_set_hl(0, "WinSeparatorNC", { fg = "#444444", bg = "NONE" }) -- Inactive

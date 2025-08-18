@@ -7,7 +7,7 @@ return {
   opts = {
     options = {
       separator_style = "thin", -- "slant" | "slope" | "thick" | "thin" | { "any", "any" },
-      persist_buffer_sort = true,
+      persist_buffer_sort = false,
       sort_by = "insert_at_end",
     },
   },

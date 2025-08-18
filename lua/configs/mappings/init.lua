@@ -86,8 +86,8 @@ Keymap("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Windo
 
 Keymap("n", "-", "<cmd>Oil<cr>", { desc = "Open Tree on Buffer" })
 
-Keymap("n", "]c", function()
-  require("treesitter-context").go_to_context(vim.v.count1)
-end, { desc = "Go to context" })
+-- Keymap("n", "]c", function()
+--   require("treesitter-context").go_to_context(vim.v.count1)
+-- end, { desc = "Go to context" })
 
 Keymap("n", "<leader>ut", "<cmd>TSContextToggle<cr>", { desc = "Toggle Treesitter Context" })

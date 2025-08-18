@@ -13,8 +13,10 @@ local servers = {
   "cssls",
   "vtsls",
   "eslint",
+  "eslint_d",
   "jsonls",
   "tailwindcss",
+  "prettier",
   "emmet_ls",
 
   -- NOTE: markdown
@@ -86,6 +88,16 @@ local on_attach = function(client, bufnr)
     }
   end, { buffer = bufnr, desc = "Fix all" })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", noremap = true })
+
+  if client.name == "prettier" then
+    print("prettier wkwkw")
+    client.server_capabilities.documentFormattingProvider = true
+  end
+
+  if client.name == "eslint" then
+    print("eslint wkwkw")
+    client.server_capabilities.documentFormattingProvider = true
+  end
 
   -- typescript lang
   if client.name == "vtsls" then

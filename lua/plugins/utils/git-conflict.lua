@@ -5,12 +5,9 @@ return {
   config = function()
     require 'git-conflict'.setup {
       default_mappings = {
-        ours = 'o',
-        theirs = 't',
-        none = '0',
-        both = 'b',
-        next = 'n',
-        prev = 'p',
+        ours = '<leader>co',
+        theirs = '<leader>ct',
+        both = '<leader>ca',
       },
     }
   end
